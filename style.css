@@ -71,9 +71,8 @@ body {
   font-size: 0.9rem;
   letter-spacing: 1px;
   padding: 0.5rem 0;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
   position: relative;
+  transition: color 0.3s ease;
 }
 
 .nav-links a::before {
@@ -117,13 +116,6 @@ h1 {
   margin-bottom: 2rem;
   position: relative;
   display: inline-block;
-  animation: glow 3s ease-in-out infinite;
-}
-
-@keyframes glow {
-  0% { text-shadow: 0 0 0 rgba(245, 179, 66, 0); }
-  50% { text-shadow: 0 0 15px rgba(245, 179, 66, 0.3); }
-  100% { text-shadow: 0 0 0 rgba(245, 179, 66, 0); }
 }
 
 h1::after {
@@ -145,8 +137,6 @@ h2 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   color: #f5b342;
-  position: relative;
-  display: inline-block;
 }
 
 /* Главная страница */
@@ -156,8 +146,6 @@ h2 {
   background: linear-gradient(135deg, #0f1215 0%, #1a1f24 100%);
   border-radius: 8px;
   margin-bottom: 2rem;
-  position: relative;
-  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -166,27 +154,9 @@ h2 {
   box-shadow: 0 15px 30px rgba(0,0,0,0.4);
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(245,179,66,0.1) 0%, transparent 70%);
-  animation: rotate 20s linear infinite;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .hero h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
 }
 
 .hero h1::after {
@@ -198,8 +168,6 @@ h2 {
   color: #a0a8b0;
   max-width: 600px;
   margin: 0 auto 1.5rem;
-  position: relative;
-  z-index: 1;
 }
 
 .stats-grid {
@@ -216,18 +184,6 @@ h2 {
   text-align: center;
   border-left: 4px solid #f5b342;
   transition: all 0.3s ease;
-  animation: cardAppear 0.6s ease;
-  animation-fill-mode: both;
-}
-
-.stat-card:nth-child(1) { animation-delay: 0.1s; }
-.stat-card:nth-child(2) { animation-delay: 0.2s; }
-.stat-card:nth-child(3) { animation-delay: 0.3s; }
-.stat-card:nth-child(4) { animation-delay: 0.4s; }
-
-@keyframes cardAppear {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .stat-card:hover {
@@ -241,11 +197,6 @@ h2 {
   color: #a0a8b0;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-.stat-card:hover h3 {
-  color: #f5b342;
 }
 
 .stat-card p {
@@ -264,30 +215,12 @@ h2 {
   padding: 2rem;
   border-radius: 8px;
   margin: 2rem 0;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-section:hover {
   transform: translateX(5px);
   box-shadow: -5px 5px 20px rgba(245, 179, 66, 0.1);
-}
-
-.about-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, rgba(245,179,66,0.1) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.about-section:hover::after {
-  opacity: 1;
 }
 
 .features {
@@ -345,11 +278,6 @@ h2 {
   font-weight: 800;
   color: #f5b342;
   width: 50px;
-  transition: transform 0.3s ease;
-}
-
-.mini-item:hover .mini-rank {
-  transform: scale(1.2);
 }
 
 .mini-info {
@@ -360,22 +288,11 @@ h2 {
   font-size: 0.8rem;
   color: #a0a8b0;
   text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-.mini-item:hover .mini-label {
-  color: #f5b342;
 }
 
 /* Страницы чартов */
 .page-header {
   margin-bottom: 2rem;
-  animation: slideRight 0.6s ease;
-}
-
-@keyframes slideRight {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
 }
 
 /* Топ треков */
@@ -392,34 +309,14 @@ h2 {
   border-radius: 4px;
   transition: all 0.3s ease;
   cursor: pointer;
-  animation: trackAppear 0.5s ease;
-  animation-fill-mode: both;
+  border-left: 3px solid transparent;
 }
-
-@keyframes trackAppear {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-.track-item:nth-child(1) { animation-delay: 0.1s; }
-.track-item:nth-child(2) { animation-delay: 0.15s; }
-.track-item:nth-child(3) { animation-delay: 0.2s; }
-.track-item:nth-child(4) { animation-delay: 0.25s; }
-.track-item:nth-child(5) { animation-delay: 0.3s; }
-.track-item:nth-child(6) { animation-delay: 0.35s; }
-.track-item:nth-child(7) { animation-delay: 0.4s; }
-.track-item:nth-child(8) { animation-delay: 0.45s; }
-.track-item:nth-child(9) { animation-delay: 0.5s; }
-.track-item:nth-child(10) { animation-delay: 0.55s; }
 
 .track-item:hover {
   background: #1e252b;
-  transform: translateX(10px) scale(1.01);
+  transform: translateX(10px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.track-item:active {
-  transform: scale(0.99);
+  border-left-color: #f5b342;
 }
 
 .track-rank {
@@ -428,11 +325,6 @@ h2 {
   color: #f5b342;
   width: 60px;
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.track-item:hover .track-rank {
-  transform: scale(1.2);
 }
 
 .track-cover {
@@ -446,12 +338,11 @@ h2 {
   justify-content: center;
   font-size: 0.7rem;
   color: #a0a8b0;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .track-item:hover .track-cover {
-  transform: rotate(5deg) scale(1.1);
-  box-shadow: 0 5px 15px rgba(245,179,66,0.3);
+  transform: rotate(3deg) scale(1.1);
 }
 
 .track-info {
@@ -461,21 +352,11 @@ h2 {
 .track-title {
   font-size: 1.2rem;
   font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.track-item:hover .track-title {
-  color: #f5b342;
 }
 
 .track-artist {
   color: #a0a8b0;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
-}
-
-.track-item:hover .track-artist {
-  color: #ffffff;
 }
 
 .track-change {
@@ -484,11 +365,6 @@ h2 {
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.track-item:hover .track-change {
-  transform: scale(1.1);
 }
 
 .change-up {
@@ -521,30 +397,14 @@ h2 {
   align-items: center;
   transition: all 0.3s ease;
   cursor: pointer;
-  animation: albumAppear 0.6s ease;
-  animation-fill-mode: both;
+  border-left: 3px solid transparent;
 }
-
-@keyframes albumAppear {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-.album-item:nth-child(1) { animation-delay: 0.1s; }
-.album-item:nth-child(2) { animation-delay: 0.15s; }
-.album-item:nth-child(3) { animation-delay: 0.2s; }
-.album-item:nth-child(4) { animation-delay: 0.25s; }
-.album-item:nth-child(5) { animation-delay: 0.3s; }
-.album-item:nth-child(6) { animation-delay: 0.35s; }
-.album-item:nth-child(7) { animation-delay: 0.4s; }
-.album-item:nth-child(8) { animation-delay: 0.45s; }
-.album-item:nth-child(9) { animation-delay: 0.5s; }
-.album-item:nth-child(10) { animation-delay: 0.55s; }
 
 .album-item:hover {
   transform: translateY(-5px) scale(1.02);
   background: #1e252b;
   box-shadow: 0 10px 25px rgba(245, 179, 66, 0.2);
+  border-left-color: #f5b342;
 }
 
 .album-rank {
@@ -552,11 +412,6 @@ h2 {
   font-weight: 800;
   color: #f5b342;
   width: 50px;
-  transition: transform 0.3s ease;
-}
-
-.album-item:hover .album-rank {
-  transform: scale(1.2);
 }
 
 .album-cover {
@@ -570,12 +425,11 @@ h2 {
   justify-content: center;
   font-size: 0.7rem;
   color: #a0a8b0;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .album-item:hover .album-cover {
   transform: rotate(3deg) scale(1.1);
-  box-shadow: 0 5px 15px rgba(245,179,66,0.3);
 }
 
 .album-info {
@@ -584,32 +438,17 @@ h2 {
 
 .album-title {
   font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.album-item:hover .album-title {
-  color: #f5b342;
 }
 
 .album-artist {
   color: #a0a8b0;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
-}
-
-.album-item:hover .album-artist {
-  color: #ffffff;
 }
 
 .album-date {
   font-size: 0.8rem;
   color: #f5b342;
   margin-top: 0.2rem;
-  transition: transform 0.3s ease;
-}
-
-.album-item:hover .album-date {
-  transform: translateX(5px);
 }
 
 /* Топ артистов */
@@ -618,39 +457,25 @@ h2 {
 }
 
 .artist-item {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
   background: #14181c;
   margin-bottom: 0.5rem;
   border-radius: 4px;
   transition: all 0.3s ease;
+}
+
+.artist-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
   cursor: pointer;
-  position: relative;
-  animation: artistAppear 0.5s ease;
-  animation-fill-mode: both;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
 }
 
-@keyframes artistAppear {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.artist-item:nth-child(1) { animation-delay: 0.1s; }
-.artist-item:nth-child(2) { animation-delay: 0.15s; }
-.artist-item:nth-child(3) { animation-delay: 0.2s; }
-.artist-item:nth-child(4) { animation-delay: 0.25s; }
-.artist-item:nth-child(5) { animation-delay: 0.3s; }
-.artist-item:nth-child(6) { animation-delay: 0.35s; }
-.artist-item:nth-child(7) { animation-delay: 0.4s; }
-.artist-item:nth-child(8) { animation-delay: 0.45s; }
-.artist-item:nth-child(9) { animation-delay: 0.5s; }
-.artist-item:nth-child(10) { animation-delay: 0.55s; }
-
-.artist-item:hover {
+.artist-header:hover {
   background: #1e252b;
-  transform: translateX(10px);
-  box-shadow: 0 5px 20px rgba(245, 179, 66, 0.2);
+  border-left-color: #f5b342;
+  transform: translateX(5px);
 }
 
 .artist-rank {
@@ -659,11 +484,6 @@ h2 {
   color: #f5b342;
   width: 60px;
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.artist-item:hover .artist-rank {
-  transform: scale(1.2);
 }
 
 .artist-avatar {
@@ -677,10 +497,10 @@ h2 {
   justify-content: center;
   font-size: 0.7rem;
   color: #a0a8b0;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.artist-item:hover .artist-avatar {
+.artist-header:hover .artist-avatar {
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(245,179,66,0.3);
 }
@@ -692,11 +512,6 @@ h2 {
 .artist-name {
   font-size: 1.2rem;
   font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.artist-item:hover .artist-name {
-  color: #f5b342;
 }
 
 .artist-stats {
@@ -712,111 +527,76 @@ h2 {
   gap: 0.3rem;
   font-size: 0.9rem;
   color: #a0a8b0;
-  transition: all 0.3s ease;
-}
-
-.artist-item:hover .artist-stat {
-  color: #ffffff;
-}
-
-.artist-stat:hover {
-  transform: scale(1.05);
-  color: #f5b342 !important;
 }
 
 .stat-icon {
   color: #f5b342;
-  transition: transform 0.3s ease;
 }
 
-.artist-stat:hover .stat-icon {
-  transform: rotate(360deg);
+/* Мини-карточка артиста (выдвижная) */
+.artist-expand {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  background: #1a2128;
+  border-radius: 0 0 8px 8px;
+  padding: 0 2rem;
 }
 
-/* Мини-карточка артиста */
-.artist-mini-card {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  width: 90%;
-  max-width: 500px;
-  background: #1e252b;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 0 2px #f5b342 inset;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.artist-expand.active {
+  max-height: 400px;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #f5b342;
 }
 
-.artist-mini-card.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.card-header {
+.artist-card {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #2a323a;
-  padding-bottom: 1rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.card-left {
+  flex: 0 0 120px;
+  text-align: center;
 }
 
 .card-avatar {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   background: #2a323a;
   border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #f5b342;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
   color: #a0a8b0;
-  border: 3px solid #f5b342;
-  transition: transform 0.3s ease;
-}
-
-.card-avatar:hover {
-  transform: rotate(5deg) scale(1.05);
-}
-
-.card-title {
-  flex: 1;
-}
-
-.card-name {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #f5b342;
-  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
 }
 
 .card-realname {
-  color: #a0a8b0;
+  color: #f5b342;
   font-size: 1rem;
+  font-weight: 600;
+}
+
+.card-right {
+  flex: 1;
 }
 
 .card-bio {
-  margin-bottom: 2rem;
-  padding: 1rem;
   background: #14181c;
+  padding: 1rem;
   border-radius: 8px;
-  line-height: 1.8;
+  margin-bottom: 1rem;
   border-left: 4px solid #f5b342;
-}
-
-.card-awards {
-  margin-bottom: 2rem;
+  line-height: 1.8;
 }
 
 .card-awards h3 {
   color: #f5b342;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
 }
 
 .award-list {
@@ -841,50 +621,6 @@ h2 {
 
 .award-icon {
   color: #f5b342;
-  font-size: 1.2rem;
-}
-
-.card-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  color: #a0a8b0;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.card-close:hover {
-  color: #f5b342;
-  transform: rotate(90deg);
-  background: rgba(245,179,66,0.1);
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(3px);
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.overlay.active {
-  opacity: 1;
-  visibility: visible;
 }
 
 /* Футер */
@@ -925,8 +661,16 @@ footer:hover {
     gap: 0.3rem;
   }
   
-  .artist-mini-card {
-    width: 95%;
-    padding: 1.5rem;
+  .artist-card {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .card-left {
+    flex: 0 0 auto;
+  }
+  
+  .artist-expand.active {
+    padding: 1rem;
   }
 }
