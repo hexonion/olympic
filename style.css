@@ -652,3 +652,31 @@ footer:hover {
     font-size: 0.75rem;
   }
 }
+/* Награды в топе артистов */
+.artist-awards {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.award-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(245, 179, 66, 0.1);
+  color: #f5b342;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.award-badge:hover {
+  background: rgba(245, 179, 66, 0.3);
+  transform: scale(1.05);
+}
+
+.award-icon {
+  font-size: 0.9rem;
+}
