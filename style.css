@@ -451,73 +451,91 @@ h2 {
   margin-top: 0.2rem;
 }
 
-/* Топ артистов */
+/* Компактный топ артистов */
 .artist-list {
   list-style: none;
 }
 
-.artist-item {
-  background: #14181c;
-  margin-bottom: 0.5rem;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.artist-header {
+.artist-item-compact {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  background: #14181c;
+  margin-bottom: 0.8rem;
   padding: 1rem;
-  cursor: pointer;
-  border-left: 3px solid transparent;
+  border-radius: 8px;
   transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  animation: artistAppear 0.5s ease;
+  animation-fill-mode: both;
 }
 
-.artist-header:hover {
+.artist-item-compact:nth-child(1) { animation-delay: 0.1s; }
+.artist-item-compact:nth-child(2) { animation-delay: 0.15s; }
+.artist-item-compact:nth-child(3) { animation-delay: 0.2s; }
+.artist-item-compact:nth-child(4) { animation-delay: 0.25s; }
+.artist-item-compact:nth-child(5) { animation-delay: 0.3s; }
+.artist-item-compact:nth-child(6) { animation-delay: 0.35s; }
+.artist-item-compact:nth-child(7) { animation-delay: 0.4s; }
+.artist-item-compact:nth-child(8) { animation-delay: 0.45s; }
+.artist-item-compact:nth-child(9) { animation-delay: 0.5s; }
+.artist-item-compact:nth-child(10) { animation-delay: 0.55s; }
+
+.artist-item-compact:hover {
+  transform: translateX(10px);
   background: #1e252b;
   border-left-color: #f5b342;
-  transform: translateX(5px);
+  box-shadow: 0 5px 20px rgba(245, 179, 66, 0.2);
 }
 
-.artist-rank {
+.artist-item-compact .artist-rank {
   font-size: 1.8rem;
   font-weight: 800;
   color: #f5b342;
   width: 60px;
   text-align: center;
+  line-height: 1.2;
 }
 
-.artist-avatar {
-  width: 50px;
-  height: 50px;
+.artist-item-compact .artist-avatar {
+  width: 60px;
+  height: 60px;
   background: #2a323a;
-  margin-right: 1rem;
+  margin-right: 1.2rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
   color: #a0a8b0;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
-.artist-header:hover .artist-avatar {
-  transform: scale(1.1);
+.artist-item-compact:hover .artist-avatar {
+  transform: scale(1.05);
   box-shadow: 0 0 20px rgba(245,179,66,0.3);
 }
 
-.artist-info {
+.artist-item-compact .artist-info {
   flex: 1;
 }
 
-.artist-name {
-  font-size: 1.2rem;
-  font-weight: 600;
+.artist-item-compact .artist-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
 }
 
-.artist-stats {
+.artist-item-compact:hover .artist-name {
+  color: #f5b342;
+}
+
+.artist-stats-row {
   display: flex;
   gap: 1.5rem;
-  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
   flex-wrap: wrap;
 }
 
@@ -527,100 +545,51 @@ h2 {
   gap: 0.3rem;
   font-size: 0.9rem;
   color: #a0a8b0;
+  background: #1a2128;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.artist-item-compact:hover .artist-stat {
+  background: #2a323a;
+  color: #ffffff;
 }
 
 .stat-icon {
   color: #f5b342;
 }
 
-/* Мини-карточка артиста (выдвижная) */
-.artist-expand {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease, padding 0.3s ease;
-  background: #1a2128;
-  border-radius: 0 0 8px 8px;
-  padding: 0 2rem;
-}
-
-.artist-expand.active {
-  max-height: 400px;
-  padding: 1.5rem 2rem;
-  border-top: 1px solid #f5b342;
-}
-
-.artist-card {
+.artist-awards-row {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
-.card-left {
-  flex: 0 0 120px;
-  text-align: center;
-}
-
-.card-avatar {
-  width: 120px;
-  height: 120px;
-  background: #2a323a;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  border: 3px solid #f5b342;
+.award-tag {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #a0a8b0;
-  font-size: 0.8rem;
-}
-
-.card-realname {
+  gap: 0.3rem;
+  font-size: 0.85rem;
   color: #f5b342;
-  font-size: 1rem;
-  font-weight: 600;
+  background: rgba(245, 179, 66, 0.1);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
 }
 
-.card-right {
-  flex: 1;
-}
-
-.card-bio {
-  background: #14181c;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  border-left: 4px solid #f5b342;
-  line-height: 1.8;
-}
-
-.card-awards h3 {
-  color: #f5b342;
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-}
-
-.award-list {
-  list-style: none;
-}
-
-.award-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  background: #14181c;
-  margin-bottom: 0.3rem;
-  border-radius: 4px;
-  transition: transform 0.3s ease;
-}
-
-.award-item:hover {
-  transform: translateX(5px);
-  background: #2a323a;
+.award-tag:hover {
+  background: rgba(245, 179, 66, 0.3);
+  transform: scale(1.02);
 }
 
 .award-icon {
   color: #f5b342;
+}
+
+@keyframes artistAppear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Футер */
@@ -656,21 +625,30 @@ footer:hover {
     font-size: 1.2rem;
   }
   
-  .artist-stats {
-    flex-direction: column;
-    gap: 0.3rem;
+  .artist-item-compact {
+    flex-wrap: wrap;
   }
   
-  .artist-card {
-    flex-direction: column;
-    gap: 1rem;
+  .artist-item-compact .artist-rank {
+    width: 40px;
+    font-size: 1.5rem;
   }
   
-  .card-left {
-    flex: 0 0 auto;
+  .artist-item-compact .artist-avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
   }
   
-  .artist-expand.active {
-    padding: 1rem;
+  .artist-stats-row {
+    gap: 0.8rem;
+  }
+  
+  .artist-awards-row {
+    gap: 0.5rem;
+  }
+  
+  .award-tag {
+    font-size: 0.75rem;
   }
 }
