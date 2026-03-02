@@ -5,6 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OLYMPIC SOUND - Топ альбомов</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Дополнительный стиль для корректного отображения обложек */
+    .album-cover {
+      width: 70px;
+      height: 70px;
+      background: #2a323a;
+      margin-right: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    
+    .album-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .album-item:hover .album-cover {
+      transform: scale(1.05) rotate(2deg);
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -26,84 +50,100 @@
       <!-- Альбом 1 -->
       <div class="album-item">
         <div class="album-rank">1</div>
-        <div class="album-cover">обложка</div>
+        <div class="album-cover">
+          <img src="covers/error.png" alt="Album cover" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        </div>
         <div class="album-info">
-          <div class="album-title">_______________</div>
-          <div class="album-artist">_______________</div>
-          <div class="album-date">релиз: __.__.____</div>
+          <div class="album-title">error</div>
+          <div class="album-artist">lunaa.</div>
+          <div class="album-date">релиз: 2 месяца назад</div>
         </div>
       </div>
 
       <!-- Альбом 2 -->
       <div class="album-item">
         <div class="album-rank">2</div>
-        <div class="album-cover">обложка</div>
+        <div class="album-cover">
+          <img src="covers/thecapuletcode.png" alt="Album cover" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        </div>
         <div class="album-info">
-          <div class="album-title">_______________</div>
-          <div class="album-artist">_______________</div>
-          <div class="album-date">релиз: __.__.____</div>
+          <div class="album-title">The Capulet Code</div>
+          <div class="album-artist">praisecapulet</div>
+          <div class="album-date">релиз: 1 месяц назад</div>
         </div>
       </div>
 
       <!-- Альбом 3 -->
       <div class="album-item">
         <div class="album-rank">3</div>
-        <div class="album-cover">обложка</div>
+        <div class="album-cover">
+          <img src="covers/sexnar.jpg" alt="Album cover" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        </div>
         <div class="album-info">
-          <div class="album-title">_______________</div>
-          <div class="album-artist">_______________</div>
-          <div class="album-date">релиз: __.__.____</div>
+          <div class="album-title">SEX NARCISSIST</div>
+          <div class="album-artist">silvain</div>
+          <div class="album-date">релиз: 01.03.26</div>
         </div>
       </div>
 
       <!-- Альбом 4 -->
       <div class="album-item">
         <div class="album-rank">4</div>
-        <div class="album-cover">обложка</div>
+        <div class="album-cover">
+          <img src="covers/thegoat2.png" alt="Album cover" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        </div>
         <div class="album-info">
-          <div class="album-title">_______________</div>
-          <div class="album-artist">_______________</div>
-          <div class="album-date">релиз: __.__.____</div>
+          <div class="album-title">THE GOAT 2</div>
+          <div class="album-artist">YUNG ROLLIN</div>
+          <div class="album-date">релиз: 1 месяц назад</div>
         </div>
       </div>
 
       <!-- Альбом 5 -->
       <div class="album-item">
         <div class="album-rank">5</div>
-        <div class="album-cover">обложка</div>
+        <div class="album-cover">
+          <img src="covers/sle.jpg" alt="Album cover" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        </div>
         <div class="album-info">
-          <div class="album-title">_______________</div>
-          <div class="album-artist">_______________</div>
-          <div class="album-date">релиз: __.__.____</div>
+          <div class="album-title">some life exchanged</div>
+          <div class="album-artist">2SMILEY</div>
+          <div class="album-date">релиз: 27.02.26</div>
         </div>
       </div>
 
       <!-- Альбом 6 -->
       <div class="album-item">
         <div class="album-rank">6</div>
-        <div class="album-cover">обложка</div>
+        <div class="album-cover">
+          <img src="covers/depth.jpg" alt="Album cover" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        </div>
         <div class="album-info">
-          <div class="album-title">_______________</div>
-          <div class="album-artist">_______________</div>
-          <div class="album-date">релиз: __.__.____</div>
+          <div class="album-title">depth</div>
+          <div class="album-artist">Shawn Wayne</div>
+          <div class="album-date">релиз: 10 месяцев назад</div>
         </div>
       </div>
 
       <!-- Альбом 7 -->
       <div class="album-item">
         <div class="album-rank">7</div>
-        <div class="album-cover">обложка</div>
+        <div class="album-cover">
+          <img src="covers/hc.jpg" alt="Album cover" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        </div>
         <div class="album-info">
-          <div class="album-title">_______________</div>
-          <div class="album-artist">_______________</div>
-          <div class="album-date">релиз: __.__.____</div>
+          <div class="album-title">Hellish Core</div>
+          <div class="album-artist">2SMILEY</div>
+          <div class="album-date">релиз: 7 месяцев назад</div>
         </div>
       </div>
 
       <!-- Альбом 8 -->
       <div class="album-item">
         <div class="album-rank">8</div>
-        <div class="album-cover">обложка</div>
+        <div class="album-cover">
+          <img src="covers/________________.jpg" alt="Album cover" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        </div>
         <div class="album-info">
           <div class="album-title">_______________</div>
           <div class="album-artist">_______________</div>
@@ -114,7 +154,9 @@
       <!-- Альбом 9 -->
       <div class="album-item">
         <div class="album-rank">9</div>
-        <div class="album-cover">обложка</div>
+        <div class="album-cover">
+          <img src="covers/________________.jpg" alt="Album cover" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        </div>
         <div class="album-info">
           <div class="album-title">_______________</div>
           <div class="album-artist">_______________</div>
@@ -125,7 +167,9 @@
       <!-- Альбом 10 -->
       <div class="album-item">
         <div class="album-rank">10</div>
-        <div class="album-cover">обложка</div>
+        <div class="album-cover">
+          <img src="covers/________________.jpg" alt="Album cover" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        </div>
         <div class="album-info">
           <div class="album-title">_______________</div>
           <div class="album-artist">_______________</div>
@@ -136,7 +180,7 @@
   </main>
 
   <footer>
-    © 2026 OLYMPIC SOUND — Преемник Sanboard
+    © 2026 OLYMPIC SOUND — all rights reserved.
   </footer>
 </body>
 </html>
