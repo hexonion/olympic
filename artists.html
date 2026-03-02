@@ -5,6 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OLYMPIC SOUND - Топ артистов</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Дополнительные стили для кнопки TAGGER */
+    .artist-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-left: auto;
+    }
+    
+    .tagger-btn {
+      background: rgba(245, 179, 66, 0.15);
+      border: 1px solid #f5b342;
+      color: #f5b342;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+    
+    .tagger-btn:hover {
+      background: #f5b342;
+      color: #0a0c0f;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(245, 179, 66, 0.5);
+    }
+    
+    .tagger-icon {
+      font-size: 1.1rem;
+    }
+    
+    .artist-item {
+      position: relative;
+    }
+    
+    .artist-stats {
+      margin-right: 1rem;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -32,10 +76,13 @@
         <div class="artist-info">
           <div class="artist-name">lunaa.</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> 1 трек</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> 0 альбомов</span>
             <span class="artist-stat"><span class="stat-icon">🎧</span> 211.2K/мес</span>
           </div>
+        </div>
+        <div class="artist-actions">
+          <a href="https://tagger.su/lunaa" class="tagger-btn" target="_blank">
+            <span class="tagger-icon">📱</span> TAGGER
+          </a>
         </div>
       </div>
 
@@ -43,15 +90,18 @@
       <div class="artist-item">
         <div class="artist-rank">2</div>
         <div class="artist-avatar-img">
-          <img src="avatars/silvain.jpg" alt="Artist 2" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+          <img src="avatars/silvain.jpg" alt="silvain" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
         </div>
         <div class="artist-info">
           <div class="artist-name">silvain</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> 5 треков</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> 1 альбом</span>
             <span class="artist-stat"><span class="stat-icon">🎧</span> 184.8K/мес</span>
           </div>
+        </div>
+        <div class="artist-actions">
+          <a href="https://tagger.su/silvain" class="tagger-btn" target="_blank">
+            <span class="tagger-icon">📱</span> TAGGER
+          </a>
         </div>
       </div>
 
@@ -59,15 +109,18 @@
       <div class="artist-item">
         <div class="artist-rank">3</div>
         <div class="artist-avatar-img">
-          <img src="avatars/inferno.png" alt="Artist 3" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+          <img src="avatars/inferno.png" alt="inferno" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
         </div>
         <div class="artist-info">
           <div class="artist-name">inferno</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов</span>
             <span class="artist-stat"><span class="stat-icon">🎧</span> 105K/мес</span>
           </div>
+        </div>
+        <div class="artist-actions">
+          <a href="https://tagger.su/geek" class="tagger-btn" target="_blank">
+            <span class="tagger-icon">📱</span> TAGGER
+          </a>
         </div>
       </div>
 
@@ -75,15 +128,18 @@
       <div class="artist-item">
         <div class="artist-rank">4</div>
         <div class="artist-avatar-img">
-          <img src="avatars/2smiley.jpg" alt="Artist 4" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+          <img src="avatars/2smiley.jpg" alt="2SMILEY" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
         </div>
         <div class="artist-info">
           <div class="artist-name">2SMILEY</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> 10 треков</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> 1 альбом</span>
             <span class="artist-stat"><span class="stat-icon">🎧</span> 88.8K/мес</span>
           </div>
+        </div>
+        <div class="artist-actions">
+          <a href="https://tagger.su/2smiley" class="tagger-btn" target="_blank">
+            <span class="tagger-icon">📱</span> TAGGER
+          </a>
         </div>
       </div>
 
@@ -96,10 +152,13 @@
         <div class="artist-info">
           <div class="artist-name">_______________</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов</span>
             <span class="artist-stat"><span class="stat-icon">🎧</span> —/мес</span>
           </div>
+        </div>
+        <div class="artist-actions">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span class="tagger-icon">📱</span> TAGGER
+          </a>
         </div>
       </div>
 
@@ -112,10 +171,13 @@
         <div class="artist-info">
           <div class="artist-name">_______________</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов</span>
             <span class="artist-stat"><span class="stat-icon">🎧</span> —/мес</span>
           </div>
+        </div>
+        <div class="artist-actions">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span class="tagger-icon">📱</span> TAGGER
+          </a>
         </div>
       </div>
 
@@ -128,10 +190,13 @@
         <div class="artist-info">
           <div class="artist-name">_______________</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов</span>
             <span class="artist-stat"><span class="stat-icon">🎧</span> —/мес</span>
           </div>
+        </div>
+        <div class="artist-actions">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span class="tagger-icon">📱</span> TAGGER
+          </a>
         </div>
       </div>
 
@@ -144,10 +209,13 @@
         <div class="artist-info">
           <div class="artist-name">_______________</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов</span>
             <span class="artist-stat"><span class="stat-icon">🎧</span> —/мес</span>
           </div>
+        </div>
+        <div class="artist-actions">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span class="tagger-icon">📱</span> TAGGER
+          </a>
         </div>
       </div>
 
@@ -160,10 +228,13 @@
         <div class="artist-info">
           <div class="artist-name">_______________</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов</span>
             <span class="artist-stat"><span class="stat-icon">🎧</span> —/мес</span>
           </div>
+        </div>
+        <div class="artist-actions">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span class="tagger-icon">📱</span> TAGGER
+          </a>
         </div>
       </div>
 
@@ -176,10 +247,13 @@
         <div class="artist-info">
           <div class="artist-name">_______________</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов</span>
             <span class="artist-stat"><span class="stat-icon">🎧</span> —/мес</span>
           </div>
+        </div>
+        <div class="artist-actions">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span class="tagger-icon">📱</span> TAGGER
+          </a>
         </div>
       </div>
     </div>
