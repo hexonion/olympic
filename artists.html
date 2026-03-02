@@ -5,6 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OLYMPIC SOUND - Топ артистов</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ВРЕМЕННЫЕ СТИЛИ ПРЯМО ЗДЕСЬ, ЧТОБЫ ТОЧНО РАБОТАЛО */
+    .artist-list {
+      list-style: none;
+    }
+    
+    .artist-item {
+      display: flex !important;
+      align-items: center !important;
+      background: #14181c !important;
+      margin-bottom: 0.8rem !important;
+      padding: 1rem !important;
+      border-radius: 8px !important;
+      transition: all 0.3s ease !important;
+      border-left: 3px solid transparent !important;
+    }
+    
+    .artist-item:hover {
+      transform: translateX(10px) !important;
+      background: #1e252b !important;
+      border-left-color: #f5b342 !important;
+      box-shadow: 0 5px 20px rgba(245, 179, 66, 0.2) !important;
+    }
+    
+    .artist-rank {
+      font-size: 1.8rem !important;
+      font-weight: 800 !important;
+      color: #f5b342 !important;
+      width: 60px !important;
+      text-align: center !important;
+    }
+    
+    .artist-avatar {
+      width: 60px !important;
+      height: 60px !important;
+      background: #2a323a !important;
+      margin-right: 1.2rem !important;
+      border-radius: 8px !important;
+      background-size: cover !important;
+      background-position: center !important;
+      flex-shrink: 0 !important;
+    }
+    
+    .artist-info {
+      flex: 1 !important;
+    }
+    
+    .artist-name {
+      font-size: 1.3rem !important;
+      font-weight: 700 !important;
+      margin-bottom: 0.3rem !important;
+      color: #ffffff !important;
+    }
+    
+    .artist-stats {
+      display: flex !important;
+      gap: 1.2rem !important;
+      flex-wrap: wrap !important;
+    }
+    
+    .artist-stat {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.4rem !important;
+      font-size: 0.9rem !important;
+      color: #a0a8b0 !important;
+      background: #1a2128 !important;
+      padding: 0.3rem 0.8rem !important;
+      border-radius: 20px !important;
+    }
+    
+    .stat-icon {
+      color: #f5b342 !important;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -28,11 +103,11 @@
         <div class="artist-rank">1</div>
         <div class="artist-avatar" style="background-image: url('');"></div>
         <div class="artist-info">
-          <div class="artist-name">_______________</div>
+          <div class="artist-name">LIL PUMP</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков в топе</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов в топе</span>
-            <span class="artist-stat"><span class="stat-icon">🎧</span> — прослушиваний/мес</span>
+            <span class="artist-stat"><span class="stat-icon">🔥</span> 3 трека</span>
+            <span class="artist-stat"><span class="stat-icon">💿</span> 1 альбом</span>
+            <span class="artist-stat"><span class="stat-icon">🎧</span> 12.4M</span>
           </div>
         </div>
       </div>
@@ -42,11 +117,11 @@
         <div class="artist-rank">2</div>
         <div class="artist-avatar" style="background-image: url('');"></div>
         <div class="artist-info">
-          <div class="artist-name">_______________</div>
+          <div class="artist-name">XXXTENTACION</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков в топе</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов в топе</span>
-            <span class="artist-stat"><span class="stat-icon">🎧</span> — прослушиваний/мес</span>
+            <span class="artist-stat"><span class="stat-icon">🔥</span> 5 треков</span>
+            <span class="artist-stat"><span class="stat-icon">💿</span> 3 альбома</span>
+            <span class="artist-stat"><span class="stat-icon">🎧</span> 28.1M</span>
           </div>
         </div>
       </div>
@@ -56,11 +131,11 @@
         <div class="artist-rank">3</div>
         <div class="artist-avatar" style="background-image: url('');"></div>
         <div class="artist-info">
-          <div class="artist-name">_______________</div>
+          <div class="artist-name">Travis Scott</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков в топе</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов в топе</span>
-            <span class="artist-stat"><span class="stat-icon">🎧</span> — прослушиваний/мес</span>
+            <span class="artist-stat"><span class="stat-icon">🔥</span> 4 трека</span>
+            <span class="artist-stat"><span class="stat-icon">💿</span> 2 альбома</span>
+            <span class="artist-stat"><span class="stat-icon">🎧</span> 42.8M</span>
           </div>
         </div>
       </div>
@@ -70,11 +145,11 @@
         <div class="artist-rank">4</div>
         <div class="artist-avatar" style="background-image: url('');"></div>
         <div class="artist-info">
-          <div class="artist-name">_______________</div>
+          <div class="artist-name">lunaa.</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков в топе</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов в топе</span>
-            <span class="artist-stat"><span class="stat-icon">🎧</span> — прослушиваний/мес</span>
+            <span class="artist-stat"><span class="stat-icon">🔥</span> 1 трек</span>
+            <span class="artist-stat"><span class="stat-icon">💿</span> 0 альбомов</span>
+            <span class="artist-stat"><span class="stat-icon">🎧</span> 3.2M</span>
           </div>
         </div>
       </div>
@@ -84,11 +159,11 @@
         <div class="artist-rank">5</div>
         <div class="artist-avatar" style="background-image: url('');"></div>
         <div class="artist-info">
-          <div class="artist-name">_______________</div>
+          <div class="artist-name">Kordhell</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков в топе</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов в топе</span>
-            <span class="artist-stat"><span class="stat-icon">🎧</span> — прослушиваний/мес</span>
+            <span class="artist-stat"><span class="stat-icon">🔥</span> 2 трека</span>
+            <span class="artist-stat"><span class="stat-icon">💿</span> 1 альбом</span>
+            <span class="artist-stat"><span class="stat-icon">🎧</span> 8.7M</span>
           </div>
         </div>
       </div>
@@ -98,11 +173,11 @@
         <div class="artist-rank">6</div>
         <div class="artist-avatar" style="background-image: url('');"></div>
         <div class="artist-info">
-          <div class="artist-name">_______________</div>
+          <div class="artist-name">YUNGBLUD</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков в топе</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов в топе</span>
-            <span class="artist-stat"><span class="stat-icon">🎧</span> — прослушиваний/мес</span>
+            <span class="artist-stat"><span class="stat-icon">🔥</span> 2 трека</span>
+            <span class="artist-stat"><span class="stat-icon">💿</span> 2 альбома</span>
+            <span class="artist-stat"><span class="stat-icon">🎧</span> 15.3M</span>
           </div>
         </div>
       </div>
@@ -112,11 +187,11 @@
         <div class="artist-rank">7</div>
         <div class="artist-avatar" style="background-image: url('');"></div>
         <div class="artist-info">
-          <div class="artist-name">_______________</div>
+          <div class="artist-name">Drake</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков в топе</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов в топе</span>
-            <span class="artist-stat"><span class="stat-icon">🎧</span> — прослушиваний/мес</span>
+            <span class="artist-stat"><span class="stat-icon">🔥</span> 6 треков</span>
+            <span class="artist-stat"><span class="stat-icon">💿</span> 4 альбома</span>
+            <span class="artist-stat"><span class="stat-icon">🎧</span> 62.5M</span>
           </div>
         </div>
       </div>
@@ -126,11 +201,11 @@
         <div class="artist-rank">8</div>
         <div class="artist-avatar" style="background-image: url('');"></div>
         <div class="artist-info">
-          <div class="artist-name">_______________</div>
+          <div class="artist-name">Kendrick Lamar</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков в топе</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов в топе</span>
-            <span class="artist-stat"><span class="stat-icon">🎧</span> — прослушиваний/мес</span>
+            <span class="artist-stat"><span class="stat-icon">🔥</span> 3 трека</span>
+            <span class="artist-stat"><span class="stat-icon">💿</span> 3 альбома</span>
+            <span class="artist-stat"><span class="stat-icon">🎧</span> 38.1M</span>
           </div>
         </div>
       </div>
@@ -140,11 +215,11 @@
         <div class="artist-rank">9</div>
         <div class="artist-avatar" style="background-image: url('');"></div>
         <div class="artist-info">
-          <div class="artist-name">_______________</div>
+          <div class="artist-name">Playboi Carti</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков в топе</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов в топе</span>
-            <span class="artist-stat"><span class="stat-icon">🎧</span> — прослушиваний/мес</span>
+            <span class="artist-stat"><span class="stat-icon">🔥</span> 4 трека</span>
+            <span class="artist-stat"><span class="stat-icon">💿</span> 2 альбома</span>
+            <span class="artist-stat"><span class="stat-icon">🎧</span> 41.2M</span>
           </div>
         </div>
       </div>
@@ -154,11 +229,11 @@
         <div class="artist-rank">10</div>
         <div class="artist-avatar" style="background-image: url('');"></div>
         <div class="artist-info">
-          <div class="artist-name">_______________</div>
+          <div class="artist-name">Frank Ocean</div>
           <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🔥</span> — треков в топе</span>
-            <span class="artist-stat"><span class="stat-icon">💿</span> — альбомов в топе</span>
-            <span class="artist-stat"><span class="stat-icon">🎧</span> — прослушиваний/мес</span>
+            <span class="artist-stat"><span class="stat-icon">🔥</span> 1 трек</span>
+            <span class="artist-stat"><span class="stat-icon">💿</span> 2 альбома</span>
+            <span class="artist-stat"><span class="stat-icon">🎧</span> 18.7M</span>
           </div>
         </div>
       </div>
