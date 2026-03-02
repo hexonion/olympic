@@ -295,7 +295,7 @@ h2 {
   margin-bottom: 2rem;
 }
 
-/* Топ треков */
+/* ========== ТОП ТРЕКОВ ========== */
 .track-list {
   list-style: none;
 }
@@ -306,17 +306,35 @@ h2 {
   padding: 1rem;
   background: #14181c;
   margin-bottom: 0.5rem;
-  border-radius: 4px;
+  border-radius: 8px;
   transition: all 0.3s ease;
   cursor: pointer;
   border-left: 3px solid transparent;
+  animation: trackSlide 0.5s ease;
+  animation-fill-mode: both;
+}
+
+.track-item:nth-child(1) { animation-delay: 0.1s; }
+.track-item:nth-child(2) { animation-delay: 0.15s; }
+.track-item:nth-child(3) { animation-delay: 0.2s; }
+.track-item:nth-child(4) { animation-delay: 0.25s; }
+.track-item:nth-child(5) { animation-delay: 0.3s; }
+.track-item:nth-child(6) { animation-delay: 0.35s; }
+.track-item:nth-child(7) { animation-delay: 0.4s; }
+.track-item:nth-child(8) { animation-delay: 0.45s; }
+.track-item:nth-child(9) { animation-delay: 0.5s; }
+.track-item:nth-child(10) { animation-delay: 0.55s; }
+
+@keyframes trackSlide {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .track-item:hover {
-  background: #1e252b;
   transform: translateX(10px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  background: #1e252b;
   border-left-color: #f5b342;
+  box-shadow: 0 5px 20px rgba(245, 179, 66, 0.2);
 }
 
 .track-rank {
@@ -325,24 +343,29 @@ h2 {
   color: #f5b342;
   width: 60px;
   text-align: center;
-}
-
-.track-cover {
-  width: 50px;
-  height: 50px;
-  background: #2a323a;
-  margin-right: 1rem;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  color: #a0a8b0;
   transition: transform 0.3s ease;
 }
 
+.track-item:hover .track-rank {
+  transform: scale(1.2);
+}
+
+.track-cover {
+  width: 60px;
+  height: 60px;
+  background: #2a323a;
+  margin-right: 1.2rem;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
 .track-item:hover .track-cover {
-  transform: rotate(3deg) scale(1.1);
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 5px 15px rgba(245, 179, 66, 0.3);
 }
 
 .track-info {
@@ -352,11 +375,21 @@ h2 {
 .track-title {
   font-size: 1.2rem;
   font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.track-item:hover .track-title {
+  color: #f5b342;
 }
 
 .track-artist {
   color: #a0a8b0;
   font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.track-item:hover .track-artist {
+  color: #ffffff;
 }
 
 .track-change {
@@ -365,6 +398,11 @@ h2 {
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.track-item:hover .track-change {
+  transform: scale(1.1);
 }
 
 .change-up {
@@ -382,7 +420,7 @@ h2 {
   color: #a0a8b0;
 }
 
-/* Топ альбомов */
+/* ========== ТОП АЛЬБОМОВ ========== */
 .album-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -391,20 +429,38 @@ h2 {
 
 .album-item {
   display: flex;
+  align-items: center;
   background: #14181c;
   padding: 1rem;
-  border-radius: 4px;
-  align-items: center;
+  border-radius: 8px;
   transition: all 0.3s ease;
   cursor: pointer;
   border-left: 3px solid transparent;
+  animation: albumScale 0.5s ease;
+  animation-fill-mode: both;
+}
+
+.album-item:nth-child(1) { animation-delay: 0.1s; }
+.album-item:nth-child(2) { animation-delay: 0.15s; }
+.album-item:nth-child(3) { animation-delay: 0.2s; }
+.album-item:nth-child(4) { animation-delay: 0.25s; }
+.album-item:nth-child(5) { animation-delay: 0.3s; }
+.album-item:nth-child(6) { animation-delay: 0.35s; }
+.album-item:nth-child(7) { animation-delay: 0.4s; }
+.album-item:nth-child(8) { animation-delay: 0.45s; }
+.album-item:nth-child(9) { animation-delay: 0.5s; }
+.album-item:nth-child(10) { animation-delay: 0.55s; }
+
+@keyframes albumScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .album-item:hover {
   transform: translateY(-5px) scale(1.02);
   background: #1e252b;
-  box-shadow: 0 10px 25px rgba(245, 179, 66, 0.2);
   border-left-color: #f5b342;
+  box-shadow: 0 10px 25px rgba(245, 179, 66, 0.2);
 }
 
 .album-rank {
@@ -412,24 +468,30 @@ h2 {
   font-weight: 800;
   color: #f5b342;
   width: 50px;
-}
-
-.album-cover {
-  width: 60px;
-  height: 60px;
-  background: #2a323a;
-  margin-right: 1rem;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  color: #a0a8b0;
+  text-align: center;
   transition: transform 0.3s ease;
 }
 
+.album-item:hover .album-rank {
+  transform: scale(1.2);
+}
+
+.album-cover {
+  width: 70px;
+  height: 70px;
+  background: #2a323a;
+  margin-right: 1rem;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
 .album-item:hover .album-cover {
-  transform: rotate(3deg) scale(1.1);
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 5px 15px rgba(245, 179, 66, 0.3);
 }
 
 .album-info {
@@ -438,158 +500,153 @@ h2 {
 
 .album-title {
   font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.album-item:hover .album-title {
+  color: #f5b342;
 }
 
 .album-artist {
   color: #a0a8b0;
   font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.album-item:hover .album-artist {
+  color: #ffffff;
 }
 
 .album-date {
   font-size: 0.8rem;
   color: #f5b342;
   margin-top: 0.2rem;
+  transition: transform 0.3s ease;
 }
 
-/* Компактный топ артистов */
+.album-item:hover .album-date {
+  transform: translateX(5px);
+}
+
+/* ========== ТОП АРТИСТОВ (В СТИЛЕ ТРЕКОВ) ========== */
 .artist-list {
   list-style: none;
 }
 
-.artist-item-compact {
+.artist-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   background: #14181c;
   margin-bottom: 0.8rem;
   padding: 1rem;
   border-radius: 8px;
   transition: all 0.3s ease;
   border-left: 3px solid transparent;
-  animation: artistAppear 0.5s ease;
+  animation: artistSlide 0.5s ease;
   animation-fill-mode: both;
 }
 
-.artist-item-compact:nth-child(1) { animation-delay: 0.1s; }
-.artist-item-compact:nth-child(2) { animation-delay: 0.15s; }
-.artist-item-compact:nth-child(3) { animation-delay: 0.2s; }
-.artist-item-compact:nth-child(4) { animation-delay: 0.25s; }
-.artist-item-compact:nth-child(5) { animation-delay: 0.3s; }
-.artist-item-compact:nth-child(6) { animation-delay: 0.35s; }
-.artist-item-compact:nth-child(7) { animation-delay: 0.4s; }
-.artist-item-compact:nth-child(8) { animation-delay: 0.45s; }
-.artist-item-compact:nth-child(9) { animation-delay: 0.5s; }
-.artist-item-compact:nth-child(10) { animation-delay: 0.55s; }
+.artist-item:nth-child(1) { animation-delay: 0.1s; }
+.artist-item:nth-child(2) { animation-delay: 0.15s; }
+.artist-item:nth-child(3) { animation-delay: 0.2s; }
+.artist-item:nth-child(4) { animation-delay: 0.25s; }
+.artist-item:nth-child(5) { animation-delay: 0.3s; }
+.artist-item:nth-child(6) { animation-delay: 0.35s; }
+.artist-item:nth-child(7) { animation-delay: 0.4s; }
+.artist-item:nth-child(8) { animation-delay: 0.45s; }
+.artist-item:nth-child(9) { animation-delay: 0.5s; }
+.artist-item:nth-child(10) { animation-delay: 0.55s; }
 
-.artist-item-compact:hover {
+@keyframes artistSlide {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.artist-item:hover {
   transform: translateX(10px);
   background: #1e252b;
   border-left-color: #f5b342;
   box-shadow: 0 5px 20px rgba(245, 179, 66, 0.2);
 }
 
-.artist-item-compact .artist-rank {
+.artist-rank {
   font-size: 1.8rem;
   font-weight: 800;
   color: #f5b342;
   width: 60px;
   text-align: center;
-  line-height: 1.2;
+  transition: transform 0.3s ease;
 }
 
-.artist-item-compact .artist-avatar {
+.artist-item:hover .artist-rank {
+  transform: scale(1.2);
+}
+
+.artist-avatar {
   width: 60px;
   height: 60px;
   background: #2a323a;
   margin-right: 1.2rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  color: #a0a8b0;
+  border-radius: 8px; /* Квадратные, как у альбомов */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   transition: all 0.3s ease;
   flex-shrink: 0;
 }
 
-.artist-item-compact:hover .artist-avatar {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(245,179,66,0.3);
+.artist-item:hover .artist-avatar {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 5px 15px rgba(245, 179, 66, 0.3);
 }
 
-.artist-item-compact .artist-info {
+.artist-info {
   flex: 1;
 }
 
-.artist-item-compact .artist-name {
+.artist-name {
   font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #ffffff;
+  margin-bottom: 0.3rem;
   transition: color 0.3s ease;
 }
 
-.artist-item-compact:hover .artist-name {
+.artist-item:hover .artist-name {
   color: #f5b342;
 }
 
-.artist-stats-row {
+.artist-stats {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 0.5rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
 }
 
 .artist-stat {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.4rem;
   font-size: 0.9rem;
   color: #a0a8b0;
   background: #1a2128;
-  padding: 0.2rem 0.8rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 20px;
   transition: all 0.3s ease;
 }
 
-.artist-item-compact:hover .artist-stat {
+.artist-item:hover .artist-stat {
   background: #2a323a;
   color: #ffffff;
 }
 
 .stat-icon {
   color: #f5b342;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
 }
 
-.artist-awards-row {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.award-tag {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.85rem;
-  color: #f5b342;
-  background: rgba(245, 179, 66, 0.1);
-  padding: 0.2rem 0.8rem;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-}
-
-.award-tag:hover {
-  background: rgba(245, 179, 66, 0.3);
-  transform: scale(1.02);
-}
-
-.award-icon {
-  color: #f5b342;
-}
-
-@keyframes artistAppear {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.artist-stat:hover .stat-icon {
+  transform: scale(1.2);
 }
 
 /* Футер */
@@ -620,63 +677,18 @@ footer:hover {
     grid-template-columns: 1fr;
   }
   
-  .track-rank {
-    width: 40px;
-    font-size: 1.2rem;
-  }
-  
-  .artist-item-compact {
-    flex-wrap: wrap;
-  }
-  
-  .artist-item-compact .artist-rank {
+  .track-rank,
+  .artist-rank {
     width: 40px;
     font-size: 1.5rem;
   }
   
-  .artist-item-compact .artist-avatar {
-    width: 50px;
-    height: 50px;
-    margin-right: 1rem;
-  }
-  
-  .artist-stats-row {
+  .artist-stats {
     gap: 0.8rem;
   }
   
-  .artist-awards-row {
-    gap: 0.5rem;
+  .artist-stat {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
   }
-  
-  .award-tag {
-    font-size: 0.75rem;
-  }
-}
-/* Награды в топе артистов */
-.artist-awards {
-  display: flex;
-  gap: 0.8rem;
-  margin-top: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.award-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  background: rgba(245, 179, 66, 0.1);
-  color: #f5b342;
-  font-size: 0.8rem;
-  padding: 0.2rem 0.8rem;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-}
-
-.award-badge:hover {
-  background: rgba(245, 179, 66, 0.3);
-  transform: scale(1.05);
-}
-
-.award-icon {
-  font-size: 0.9rem;
 }
