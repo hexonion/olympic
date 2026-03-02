@@ -692,3 +692,89 @@ h2 {
     padding: 0.2rem 0.6rem;
   }
 }
+
+/* ========== ЖЁСТКИЙ ФИКС АРТИСТОВ ========== */
+.artist-list {
+  list-style: none !important;
+}
+
+.artist-item {
+  display: flex !important;
+  align-items: center !important;
+  background: #14181c !important;
+  margin-bottom: 0.8rem !important;
+  padding: 1rem !important;
+  border-radius: 8px !important;
+  border-left: 3px solid transparent !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.artist-rank {
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  color: #f5b342 !important;
+  width: 60px !important;
+  text-align: center !important;
+  flex-shrink: 0 !important;
+}
+
+.artist-avatar-img {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  margin-right: 1.2rem !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  background: #2a323a !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+  position: relative !important;
+}
+
+.artist-avatar-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.artist-info {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.artist-name {
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.3rem !important;
+  color: #ffffff !important;
+}
+
+.artist-stats {
+  display: flex !important;
+  gap: 1.2rem !important;
+  flex-wrap: wrap !important;
+}
+
+.artist-stat {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  font-size: 0.9rem !important;
+  color: #a0a8b0 !important;
+  background: #1a2128 !important;
+  padding: 0.3rem 0.8rem !important;
+  border-radius: 20px !important;
+}
+
+.stat-icon {
+  color: #f5b342 !important;
+  font-size: 1rem !important;
+}
