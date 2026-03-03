@@ -3,30 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OLYMPIC SOUND - Топ артистов</title>
+  <title>OLYMPIC SOUND - Зал славы</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Дополнительные стили для кнопки TAGGER */
-    .artist-actions {
+    /* Стили для Зала славы */
+    .hall-of-fame {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .hall-item {
+      background: linear-gradient(145deg, #14181c, #0f1215);
+      border: 2px solid rgba(245, 179, 66, 0.3);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    
+    .hall-item::before {
+      content: '🏆';
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      opacity: 0.2;
+      transform: rotate(15deg);
+    }
+    
+    .hall-item:hover {
+      transform: translateY(-8px);
+      border-color: #f5b342;
+      box-shadow: 0 15px 30px rgba(245, 179, 66, 0.3);
+    }
+    
+    .hall-item:hover::before {
+      opacity: 0.5;
+      transform: rotate(0deg) scale(1.2);
+      transition: all 0.3s ease;
+    }
+    
+    .hall-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      border: 3px solid #f5b342;
+      box-shadow: 0 0 20px rgba(245, 179, 66, 0.3);
+      background: #2a323a;
+    }
+    
+    .hall-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .hall-name {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+      color: #f5b342;
+      letter-spacing: 1px;
+    }
+    
+    .hall-realname {
+      font-size: 1rem;
+      color: #a0a8b0;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    
+    .hall-year {
+      display: inline-block;
+      background: rgba(245, 179, 66, 0.15);
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #f5b342;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(245, 179, 66, 0.3);
+    }
+    
+    .hall-stats {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hall-stat {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-left: auto;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .hall-stat:last-child {
+      border-bottom: none;
+    }
+    
+    .hall-stat-icon {
+      font-size: 1.2rem;
+      min-width: 30px;
+      color: #f5b342;
+    }
+    
+    .hall-stat-text {
+      color: #ffffff;
+      font-size: 1rem;
+    }
+    
+    .hall-stat-label {
+      color: #a0a8b0;
+      font-size: 0.9rem;
+      margin-left: 0.3rem;
+    }
+    
+    .hall-tagger {
+      margin-top: 1rem;
+      width: 100%;
     }
     
     .tagger-btn {
-      background: rgba(245, 179, 66, 0.15);
+      background: rgba(245, 179, 66, 0.1);
       border: 1px solid #f5b342;
       color: #f5b342;
-      padding: 0.4rem 1rem;
+      padding: 0.6rem 1.5rem;
       border-radius: 30px;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       font-weight: 600;
       text-decoration: none;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      justify-content: center;
+      gap: 0.5rem;
       transition: all 0.3s ease;
+      width: 100%;
       letter-spacing: 0.5px;
     }
     
@@ -34,19 +158,42 @@
       background: #f5b342;
       color: #0a0c0f;
       transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(245, 179, 66, 0.5);
+      box-shadow: 0 0 20px rgba(245, 179, 66, 0.5);
     }
     
-    .tagger-icon {
+    .hall-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .hall-header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #f5b342, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hall-header p {
+      color: #a0a8b0;
+      max-width: 600px;
+      margin: 0 auto;
       font-size: 1.1rem;
+      line-height: 1.8;
+      font-style: italic;
     }
     
-    .artist-item {
-      position: relative;
+    .hall-divider {
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #f5b342, transparent);
+      margin: 1rem auto 2rem;
     }
     
-    .artist-stats {
-      margin-right: 1rem;
+    @media (max-width: 768px) {
+      .hall-of-fame {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -57,222 +204,354 @@
       <a href="index.html">Главная</a>
       <a href="tracks.html">Чарт</a>
       <a href="albums.html">Альбомы</a>
-      <a href="artists.html" class="active">Артисты</a>
+      <a href="artists.html" class="active">Зал славы</a>
     </div>
   </nav>
 
   <main class="container">
-    <div class="page-header">
-      <h1>ТОП АРТИСТОВ</h1>
+    <div class="hall-header">
+      <h1>ЗАЛ СЛАВЫ</h1>
+      <div class="hall-divider"></div>
+      <p>В этом зале нет мест и нет рейтинга. Здесь только имена, которые навсегда вписаны в историю сцены. Каждый из них — лучший в своём времени.</p>
     </div>
 
-    <div class="artist-list">
-      <!-- Артист 1 -->
-      <div class="artist-item">
-        <div class="artist-rank">1</div>
-        <div class="artist-avatar-img">
-          <img src="avatars/lunaa.jpg" alt="lunaa.">
+    <div class="hall-of-fame">
+      <!-- Карточка 1 - пустая для заполнения -->
+      <div class="hall-item">
+        <div class="hall-avatar">
+          <img src="avatars/________________.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
         </div>
-        <div class="artist-info">
-          <div class="artist-name">lunaa.</div>
-          <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🎧</span> 211.2K/мес</span>
+        <div class="hall-name">_______________</div>
+        <div class="hall-realname">_______________</div>
+        <div class="hall-year">внесён: __.__.____</div>
+        
+        <div class="hall-stats">
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🔥</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">треков в чартах</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">💿</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">альбомов</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🏆</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">наград</span>
           </div>
         </div>
-        <div class="artist-actions">
-          <a href="https://tagger.su/lunaa" class="tagger-btn" target="_blank">
-            <span class="tagger-icon">📱</span> TAGGER
+        
+        <div class="hall-tagger">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span>📱</span> TAGGER
           </a>
         </div>
       </div>
 
-      <!-- Артист 2 -->
-      <div class="artist-item">
-        <div class="artist-rank">2</div>
-        <div class="artist-avatar-img">
-          <img src="avatars/silvain.jpg" alt="silvain" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+      <!-- Карточка 2 -->
+      <div class="hall-item">
+        <div class="hall-avatar">
+          <img src="avatars/________________.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
         </div>
-        <div class="artist-info">
-          <div class="artist-name">silvain</div>
-          <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🎧</span> 185.6K/мес</span>
+        <div class="hall-name">_______________</div>
+        <div class="hall-realname">_______________</div>
+        <div class="hall-year">внесён: __.__.____</div>
+        
+        <div class="hall-stats">
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🔥</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">треков в чартах</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">💿</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">альбомов</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🏆</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">наград</span>
           </div>
         </div>
-        <div class="artist-actions">
-          <a href="https://tagger.su/silvain" class="tagger-btn" target="_blank">
-            <span class="tagger-icon">📱</span> TAGGER
+        
+        <div class="hall-tagger">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span>📱</span> TAGGER
           </a>
         </div>
       </div>
 
-      <!-- Артист 3 -->
-      <div class="artist-item">
-        <div class="artist-rank">3</div>
-        <div class="artist-avatar-img">
-          <img src="avatars/inferno.png" alt="inferno" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+      <!-- Карточка 3 -->
+      <div class="hall-item">
+        <div class="hall-avatar">
+          <img src="avatars/________________.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
         </div>
-        <div class="artist-info">
-          <div class="artist-name">inferno</div>
-          <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🎧</span> 105K/мес</span>
+        <div class="hall-name">_______________</div>
+        <div class="hall-realname">_______________</div>
+        <div class="hall-year">внесён: __.__.____</div>
+        
+        <div class="hall-stats">
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🔥</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">треков в чартах</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">💿</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">альбомов</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🏆</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">наград</span>
           </div>
         </div>
-        <div class="artist-actions">
-          <a href="https://tagger.su/geek" class="tagger-btn" target="_blank">
-            <span class="tagger-icon">📱</span> TAGGER
+        
+        <div class="hall-tagger">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span>📱</span> TAGGER
           </a>
         </div>
       </div>
 
-      <!-- Артист 4 -->
-      <div class="artist-item">
-        <div class="artist-rank">4</div>
-        <div class="artist-avatar-img">
-          <img src="avatars/2smiley.jpg" alt="2SMILEY" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+      <!-- Карточка 4 -->
+      <div class="hall-item">
+        <div class="hall-avatar">
+          <img src="avatars/________________.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
         </div>
-        <div class="artist-info">
-          <div class="artist-name">2SMILEY</div>
-          <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🎧</span> 88.8K/мес</span>
+        <div class="hall-name">_______________</div>
+        <div class="hall-realname">_______________</div>
+        <div class="hall-year">внесён: __.__.____</div>
+        
+        <div class="hall-stats">
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🔥</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">треков в чартах</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">💿</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">альбомов</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🏆</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">наград</span>
           </div>
         </div>
-        <div class="artist-actions">
-          <a href="https://tagger.su/2smiley" class="tagger-btn" target="_blank">
-            <span class="tagger-icon">📱</span> TAGGER
+        
+        <div class="hall-tagger">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span>📱</span> TAGGER
           </a>
         </div>
       </div>
 
-      <!-- Артист 5 -->
-      <div class="artist-item">
-        <div class="artist-rank">5</div>
-        <div class="artist-avatar-img">
-          <img src="avatars/yungrollin.jpg" alt="Artist 5" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+      <!-- Карточка 5 -->
+      <div class="hall-item">
+        <div class="hall-avatar">
+          <img src="avatars/________________.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
         </div>
-        <div class="artist-info">
-          <div class="artist-name">YUNG ROLLIN</div>
-          <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🎧</span> 76.8K/мес</span>
+        <div class="hall-name">_______________</div>
+        <div class="hall-realname">_______________</div>
+        <div class="hall-year">внесён: __.__.____</div>
+        
+        <div class="hall-stats">
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🔥</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">треков в чартах</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">💿</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">альбомов</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🏆</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">наград</span>
           </div>
         </div>
-        <div class="artist-actions">
-          <a href="https://tagger.su/yungrollin" class="tagger-btn" target="_blank">
-            <span class="tagger-icon">📱</span> TAGGER
+        
+        <div class="hall-tagger">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span>📱</span> TAGGER
           </a>
         </div>
       </div>
 
-      <!-- Артист 6 -->
-      <div class="artist-item">
-        <div class="artist-rank">6</div>
-        <div class="artist-avatar-img">
-          <img src="avatars/praisecapulet.png" alt="Artist 6" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+      <!-- Карточка 6 -->
+      <div class="hall-item">
+        <div class="hall-avatar">
+          <img src="avatars/________________.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
         </div>
-        <div class="artist-info">
-          <div class="artist-name">praisecapulet</div>
-          <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🎧</span> 45K/мес</span>
+        <div class="hall-name">_______________</div>
+        <div class="hall-realname">_______________</div>
+        <div class="hall-year">внесён: __.__.____</div>
+        
+        <div class="hall-stats">
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🔥</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">треков в чартах</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">💿</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">альбомов</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🏆</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">наград</span>
           </div>
         </div>
-        <div class="artist-actions">
-          <a href="https://tagger.su/praisecapulet" class="tagger-btn" target="_blank">
-            <span class="tagger-icon">📱</span> TAGGER
+        
+        <div class="hall-tagger">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span>📱</span> TAGGER
           </a>
         </div>
       </div>
 
-      <!-- Артист 7 -->
-      <div class="artist-item">
-        <div class="artist-rank">7</div>
-        <div class="artist-avatar-img">
-          <img src="avatars/shawn.png" alt="Artist 7" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+      <!-- Карточка 7 -->
+      <div class="hall-item">
+        <div class="hall-avatar">
+          <img src="avatars/________________.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
         </div>
-        <div class="artist-info">
-          <div class="artist-name">Shawn Wayne</div>
-          <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🎧</span> 12.3K/мес</span>
+        <div class="hall-name">_______________</div>
+        <div class="hall-realname">_______________</div>
+        <div class="hall-year">внесён: __.__.____</div>
+        
+        <div class="hall-stats">
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🔥</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">треков в чартах</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">💿</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">альбомов</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🏆</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">наград</span>
           </div>
         </div>
-        <div class="artist-actions">
-          <a href="https://tagger.su/shawnwayne" class="tagger-btn" target="_blank">
-            <span class="tagger-icon">📱</span> TAGGER
+        
+        <div class="hall-tagger">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span>📱</span> TAGGER
           </a>
         </div>
       </div>
 
-      <!-- Артист 8 -->
-      <div class="artist-item">
-        <div class="artist-rank">8</div>
-        <div class="artist-avatar-img">
-          <img src="avatars/bitterslay.png" alt="Artist 8" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+      <!-- Карточка 8 -->
+      <div class="hall-item">
+        <div class="hall-avatar">
+          <img src="avatars/________________.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
         </div>
-        <div class="artist-info">
-          <div class="artist-name">bitterslay</div>
-          <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🎧</span> 11,2K/мес</span>
+        <div class="hall-name">_______________</div>
+        <div class="hall-realname">_______________</div>
+        <div class="hall-year">внесён: __.__.____</div>
+        
+        <div class="hall-stats">
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🔥</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">треков в чартах</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">💿</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">альбомов</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🏆</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">наград</span>
           </div>
         </div>
-        <div class="artist-actions">
-          <a href="https://tagger.su/amirka" class="tagger-btn" target="_blank">
-            <span class="tagger-icon">📱</span> TAGGER
+        
+        <div class="hall-tagger">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span>📱</span> TAGGER
           </a>
         </div>
       </div>
 
-      <!-- Артист 9 -->
-      <div class="artist-item">
-        <div class="artist-rank">9</div>
-        <div class="artist-avatar-img">
-          <img src="avatars/watson.jpg" alt="Artist 9" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+      <!-- Карточка 9 -->
+      <div class="hall-item">
+        <div class="hall-avatar">
+          <img src="avatars/________________.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
         </div>
-        <div class="artist-info">
-          <div class="artist-name">watson</div>
-          <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🎧</span> 1.56K/мес</span>
+        <div class="hall-name">_______________</div>
+        <div class="hall-realname">_______________</div>
+        <div class="hall-year">внесён: __.__.____</div>
+        
+        <div class="hall-stats">
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🔥</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">треков в чартах</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">💿</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">альбомов</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🏆</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">наград</span>
           </div>
         </div>
-        <div class="artist-actions">
-          <a href="https://tagger.su/watson" class="tagger-btn" target="_blank">
-            <span class="tagger-icon">📱</span> TAGGER
+        
+        <div class="hall-tagger">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span>📱</span> TAGGER
           </a>
         </div>
       </div>
 
-      <!-- Артист 10 -->
-      <div class="artist-item">
-        <div class="artist-rank">10</div>
-        <div class="artist-avatar-img">
-          <img src="avatars/kawaii.jpg" alt="Artist 10" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
+      <!-- Карточка 10 -->
+      <div class="hall-item">
+        <div class="hall-avatar">
+          <img src="avatars/________________.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
         </div>
-        <div class="artist-info">
-          <div class="artist-name">kawaii</div>
-          <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🎧</span> 1.5K/мес</span>
+        <div class="hall-name">_______________</div>
+        <div class="hall-realname">_______________</div>
+        <div class="hall-year">внесён: __.__.____</div>
+        
+        <div class="hall-stats">
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🔥</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">треков в чартах</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">💿</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">альбомов</span>
+          </div>
+          <div class="hall-stat">
+            <span class="hall-stat-icon">🏆</span>
+            <span class="hall-stat-text">______</span>
+            <span class="hall-stat-label">наград</span>
           </div>
         </div>
-        <div class="artist-actions">
-          <a href="https://tagger.su/aleska" class="tagger-btn" target="_blank">
-            <span class="tagger-icon">📱</span> TAGGER
-          </a>
-        </div>
-      </div>
-    </div>
-    
-      <!-- Артист 11 -->
-      <div class="artist-item">
-        <div class="artist-rank">11</div>
-        <div class="artist-avatar-img">
-          <img src="avatars/bigwaqo.png" alt="Artist 10" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a';">
-        </div>
-        <div class="artist-info">
-          <div class="artist-name">Big Waqo</div>
-          <div class="artist-stats">
-            <span class="artist-stat"><span class="stat-icon">🎧</span> 1.08K/мес</span>
-          </div>
-        </div>
-        <div class="artist-actions">
-          <a href="https://tagger.su/BigWaqo" class="tagger-btn" target="_blank">
-            <span class="tagger-icon">📱</span> TAGGER
+        
+        <div class="hall-tagger">
+          <a href="#" class="tagger-btn" target="_blank">
+            <span>📱</span> TAGGER
           </a>
         </div>
       </div>
