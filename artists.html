@@ -6,7 +6,7 @@
   <title>OLYMPIC SOUND - Зал славы</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Стили для Зала славы */
+    /* Стили для Зала славы и рекламных баннеров */
     .hall-of-fame {
       list-style: none;
       display: grid;
@@ -175,7 +175,6 @@
       position: relative;
     }
     
-    /* Убираем псевдоэлемент after у h1 */
     .hall-header h1::after {
       display: none;
     }
@@ -197,6 +196,161 @@
       opacity: 0.6;
     }
     
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 20px;
+      gap: 30px;
+      position: relative;
+      width: 100%;
+    }
+    
+    .ad-banner {
+      position: sticky;
+      top: 120px;
+      width: 200px;
+      height: fit-content;
+      align-self: flex-start;
+      z-index: 50;
+      transition: all 0.3s ease;
+    }
+    
+    .left-ad {
+      order: 1;
+    }
+    
+    .right-ad {
+      order: 3;
+    }
+    
+    main {
+      order: 2;
+      flex: 1;
+      max-width: 1100px;
+      min-width: 0;
+    }
+    
+    .ad-link {
+      display: block;
+      text-decoration: none;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(245, 179, 66, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #14181c;
+    }
+    
+    .ad-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    
+    .ad-label {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #a0a8b0;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(245, 179, 66, 0.3);
+      backdrop-filter: blur(2px);
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+    
+    .ad-link:hover {
+      border-color: #f5b342;
+      box-shadow: 0 20px 35px rgba(245, 179, 66, 0.4);
+      transform: scale(1.02);
+    }
+    
+    .ad-link:hover .ad-img {
+      transform: scale(1.08);
+    }
+    
+    .ad-link:hover .ad-label {
+      background: #f5b342;
+      color: #0a0c0f;
+    }
+    
+    .ad-banner.empty .ad-link {
+      border: 2px dashed rgba(245, 179, 66, 0.3);
+      background: linear-gradient(145deg, #14181c, #1a2128);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 250px;
+      cursor: default;
+    }
+    
+    .ad-banner.empty .ad-link::before {
+      content: "РЕКЛАМНОЕ МЕСТО";
+      color: #f5b342;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      opacity: 0.5;
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .ad-banner.empty .ad-img,
+    .ad-banner.empty .ad-label {
+      display: none;
+    }
+    
+    @media (max-width: 1400px) {
+      .content-wrapper {
+        gap: 20px;
+      }
+      .ad-banner {
+        width: 180px;
+      }
+    }
+    
+    @media (max-width: 1200px) {
+      .ad-banner {
+        width: 160px;
+      }
+    }
+    
+    @media (max-width: 1100px) {
+      .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+      .ad-banner {
+        position: static;
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+      }
+      .left-ad {
+        order: 2;
+      }
+      .right-ad {
+        order: 3;
+      }
+      main {
+        order: 1;
+      }
+    }
+    
     @media (max-width: 768px) {
       .hall-of-fame {
         grid-template-columns: 1fr;
@@ -212,188 +366,207 @@
       <a href="tracks.html">Чарт</a>
       <a href="albums.html">Альбомы</a>
       <a href="artists.html" class="active">Зал славы</a>
-      <a href="apply.html" class="active">Подать заявку</a>
+      <a href="apply.html">Подать заявку</a>
     </div>
   </nav>
 
-  <main class="container">
-    <div class="hall-header">
-      <h1>ЗАЛ СЛАВЫ</h1>
-      <div class="hall-divider"></div>
-      <p>В этом зале нет мест и нет рейтинга. Здесь только имена, которые навсегда вписаны в историю сцены. Каждый из них — лучший в своём времени.</p>
+  <div class="content-wrapper">
+    <!-- Левый рекламный баннер -->
+    <div class="ad-banner left-ad">
+      <a href="#" target="_blank" rel="nofollow sponsored" class="ad-link">
+        <img src="ads/test.png" alt="Рекламное место" class="ad-img">
+        <span class="ad-label">РЕКЛАМА</span>
+      </a>
     </div>
 
-    <div class="hall-of-fame">
-      <!-- Карточка 1 -->
-      <div class="hall-item">
-        <div class="hall-avatar">
-          <img src="avatars/tang.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
-        </div>
-        <div class="hall-name">dumpboii</div>
-        <div class="hall-realname">Dexter Tang</div>
-        <div class="hall-year">внесён: 03.03.2026</div>
-        
-        <div class="hall-stats">
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">3</span>
-            <span class="hall-stat-label">сингла</span>
-          </div>
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">7</span>
-            <span class="hall-stat-label">альбомов</span>
-          </div>
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">3</span>
-            <span class="hall-stat-label">награды</span>
-          </div>
-        </div>
-        
-        <div class="hall-tagger">
-          <a href="https://tagger.su/dumpboi" class="tagger-btn" target="_blank">
-            <span>📱</span> TAGGER
-          </a>
-        </div>
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="container" style="margin: 0; padding: 2rem 0;">
+      <div class="hall-header">
+        <h1>ЗАЛ СЛАВЫ</h1>
+        <div class="hall-divider"></div>
+        <p>В этом зале нет мест и нет рейтинга. Здесь только имена, которые навсегда вписаны в историю сцены. Каждый из них — лучший в своём времени.</p>
       </div>
 
-      <!-- Карточка 2 -->
-      <div class="hall-item">
-        <div class="hall-avatar">
-          <img src="avatars/inferno.png" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
-        </div>
-        <div class="hall-name">inferno</div>
-        <div class="hall-realname">Brian Ritter</div>
-        <div class="hall-year">внесён: 03.03.2026</div>
-        
-        <div class="hall-stats">
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">8</span>
-            <span class="hall-stat-label">синглов</span>
+      <div class="hall-of-fame">
+        <!-- Карточка 1 -->
+        <div class="hall-item">
+          <div class="hall-avatar">
+            <img src="avatars/tang.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
           </div>
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">10</span>
-            <span class="hall-stat-label">альбомов</span>
+          <div class="hall-name">dumpboii</div>
+          <div class="hall-realname">Dexter Tang</div>
+          <div class="hall-year">внесён: 03.03.2026</div>
+          
+          <div class="hall-stats">
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">3</span>
+              <span class="hall-stat-label">сингла</span>
+            </div>
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">7</span>
+              <span class="hall-stat-label">альбомов</span>
+            </div>
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">3</span>
+              <span class="hall-stat-label">награды</span>
+            </div>
           </div>
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">4</span>
-            <span class="hall-stat-label">награды</span>
+          
+          <div class="hall-tagger">
+            <a href="https://tagger.su/dumpboi" class="tagger-btn" target="_blank">
+              <span>📱</span> TAGGER
+            </a>
           </div>
         </div>
-        
-        <div class="hall-tagger">
-          <a href="https://tagger.su/geek" class="tagger-btn" target="_blank">
-            <span>📱</span> TAGGER
-          </a>
-        </div>
-      </div>
 
-      <!-- Карточка 3 -->
-      <div class="hall-item">
-        <div class="hall-avatar">
-          <img src="avatars/2smiley.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
-        </div>
-        <div class="hall-name">2SMILEY</div>
-        <div class="hall-realname">Lorenzo Casaus</div>
-        <div class="hall-year">внесён: 03.03.2026</div>
-        
-        <div class="hall-stats">
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">13</span>
-            <span class="hall-stat-label">синглов</span>
+        <!-- Карточка 2 -->
+        <div class="hall-item">
+          <div class="hall-avatar">
+            <img src="avatars/inferno.png" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
           </div>
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">7</span>
-            <span class="hall-stat-label">альбомов</span>
+          <div class="hall-name">inferno</div>
+          <div class="hall-realname">Brian Ritter</div>
+          <div class="hall-year">внесён: 03.03.2026</div>
+          
+          <div class="hall-stats">
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">8</span>
+              <span class="hall-stat-label">синглов</span>
+            </div>
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">10</span>
+              <span class="hall-stat-label">альбомов</span>
+            </div>
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">4</span>
+              <span class="hall-stat-label">награды</span>
+            </div>
           </div>
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">3</span>
-            <span class="hall-stat-label">награды</span>
+          
+          <div class="hall-tagger">
+            <a href="https://tagger.su/geek" class="tagger-btn" target="_blank">
+              <span>📱</span> TAGGER
+            </a>
           </div>
         </div>
-        
-        <div class="hall-tagger">
-          <a href="https://tagger.su/2smiley" class="tagger-btn" target="_blank">
-            <span>📱</span> TAGGER
-          </a>
-        </div>
-      </div>
 
-      <!-- Карточка 4 -->
-      <div class="hall-item">
-        <div class="hall-avatar">
-          <img src="avatars/yungrollin.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
-        </div>
-        <div class="hall-name">Yung Rollin</div>
-        <div class="hall-realname">O'Shea Wilson</div>
-        <div class="hall-year">внесён: 03.03.2026</div>
-        
-        <div class="hall-stats">
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">3</span>
-            <span class="hall-stat-label">сингла</span>
+        <!-- Карточка 3 -->
+        <div class="hall-item">
+          <div class="hall-avatar">
+            <img src="avatars/2smiley.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
           </div>
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">5</span>
-            <span class="hall-stat-label">альбомов</span>
+          <div class="hall-name">2SMILEY</div>
+          <div class="hall-realname">Lorenzo Casaus</div>
+          <div class="hall-year">внесён: 03.03.2026</div>
+          
+          <div class="hall-stats">
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">13</span>
+              <span class="hall-stat-label">синглов</span>
+            </div>
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">7</span>
+              <span class="hall-stat-label">альбомов</span>
+            </div>
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">3</span>
+              <span class="hall-stat-label">награды</span>
+            </div>
           </div>
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">3</span>
-            <span class="hall-stat-label">награды</span>
+          
+          <div class="hall-tagger">
+            <a href="https://tagger.su/2smiley" class="tagger-btn" target="_blank">
+              <span>📱</span> TAGGER
+            </a>
           </div>
         </div>
-        
-        <div class="hall-tagger">
-          <a href="https://tagger.su/yungrollin" class="tagger-btn" target="_blank">
-            <span>📱</span> TAGGER
-          </a>
-        </div>
-      </div>
 
-      <!-- Карточка 5 -->
-      <div class="hall-item">
-        <div class="hall-avatar">
-          <img src="avatars/shawnwayne.png" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
+        <!-- Карточка 4 -->
+        <div class="hall-item">
+          <div class="hall-avatar">
+            <img src="avatars/yungrollin.jpg" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
+          </div>
+          <div class="hall-name">Yung Rollin</div>
+          <div class="hall-realname">O'Shea Wilson</div>
+          <div class="hall-year">внесён: 03.03.2026</div>
+          
+          <div class="hall-stats">
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">3</span>
+              <span class="hall-stat-label">сингла</span>
+            </div>
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">5</span>
+              <span class="hall-stat-label">альбомов</span>
+            </div>
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">3</span>
+              <span class="hall-stat-label">награды</span>
+            </div>
+          </div>
+          
+          <div class="hall-tagger">
+            <a href="https://tagger.su/yungrollin" class="tagger-btn" target="_blank">
+              <span>📱</span> TAGGER
+            </a>
+          </div>
         </div>
-        <div class="hall-name">Shawn Wayne</div>
-        <div class="hall-realname">Shawn Wayne</div>
-        <div class="hall-year">внесён: 03.03.2026</div>
-        
-        <div class="hall-stats">
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">2</span>
-            <span class="hall-stat-label">сингла</span>
+
+        <!-- Карточка 5 -->
+        <div class="hall-item">
+          <div class="hall-avatar">
+            <img src="avatars/shawnwayne.png" alt="" onerror="this.style.display='none'; this.parentElement.style.background='#2a323a'; this.parentElement.innerHTML='ФОТО';">
           </div>
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">3</span>
-            <span class="hall-stat-label">альбома</span>
+          <div class="hall-name">Shawn Wayne</div>
+          <div class="hall-realname">Shawn Wayne</div>
+          <div class="hall-year">внесён: 03.03.2026</div>
+          
+          <div class="hall-stats">
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">2</span>
+              <span class="hall-stat-label">сингла</span>
+            </div>
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">3</span>
+              <span class="hall-stat-label">альбома</span>
+            </div>
+            <div class="hall-stat">
+              <span class="hall-stat-icon">🏆</span>
+              <span class="hall-stat-text">3</span>
+              <span class="hall-stat-label">награды</span>
+            </div>
           </div>
-          <div class="hall-stat">
-            <span class="hall-stat-icon">🏆</span>
-            <span class="hall-stat-text">3</span>
-            <span class="hall-stat-label">награды</span>
+          
+          <div class="hall-tagger">
+            <a href="https://tagger.su/shawnwayne" class="tagger-btn" target="_blank">
+              <span>📱</span> TAGGER
+            </a>
           </div>
-        </div>
-        
-        <div class="hall-tagger">
-          <a href="https://tagger.su/shawnwayne" class="tagger-btn" target="_blank">
-            <span>📱</span> TAGGER
-          </a>
         </div>
       </div>
+    </main>
+
+    <!-- Правый рекламный баннер -->
+    <div class="ad-banner right-ad">
+      <a href="#" target="_blank" rel="nofollow sponsored" class="ad-link">
+        <img src="ads/test.png" alt="Рекламное место" class="ad-img">
+        <span class="ad-label">РЕКЛАМА</span>
+      </a>
     </div>
-  </main>
+  </div>
+</body>
 </html>
-
