@@ -1,1 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OLYMPIC SOUND - Подать заявку</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Дополнительные стили для страницы подачи заявок */
+    .apply-hero {
+      text-align: center;
+      padding: 5rem 1rem;
+      background: linear-gradient(135deg, #0f1215 0%, #1a1f24 100%);
+      border-radius: 24px;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border: 1px solid rgba(245, 179, 66, 0.2);
+    }
+    
+    .apply-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(245, 179, 66, 0.15) 0%, transparent 70%);
+      animation: rotate 25s linear infinite;
+    }
+    
+    .apply-hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #f5b342, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 0 30px rgba(245, 179, 66, 0.3);
+      animation: glow 3s ease-in-out infinite;
+    }
+    
+    @keyframes glow {
+      0% { text-shadow: 0 0 20px rgba(245, 179, 66, 0.3); }
+      50% { text-shadow: 0 0 40px rgba(245, 179, 66, 0.6); }
+      100% { text-shadow: 0 0 20px rgba(245, 179, 66, 0.3); }
+    }
+    
+    .apply-hero h1::after {
+      display: none;
+    }
+    
+    .apply-hero p {
+      font-size: 1.3rem;
+      color: #a0a8b0;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 1px;
+      line-height: 1.8;
+    }
+    
+    .apply-subtitle {
+      color: #f5b342;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Карточки "Зачем это" */
+    .purpose-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3rem 0 4rem;
+    }
+    
+    .purpose-card {
+      background: linear-gradient(145deg, #14181c, #1a2128);
+      border: 2px solid rgba(245, 179, 66, 0.2);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+    
+    .purpose-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #f5b342, transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    
+    .purpose-card:hover::before {
+      transform: translateX(100%);
+    }
+    
+    .purpose-card:hover {
+      transform: translateY(-12px);
+      border-color: #f5b342;
+      box-shadow: 0 25px 40px rgba(245, 179, 66, 0.3);
+    }
+    
+    .purpose-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      background: rgba(245, 179, 66, 0.1);
+      padding: 1rem;
+      border-radius: 50%;
+      border: 2px solid rgba(245, 179, 66, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .purpose-card:hover .purpose-icon {
+      transform: scale(1.1) rotate(5deg);
+      background: rgba(245, 179, 66, 0.2);
+      border-color: #f5b342;
+      box-shadow: 0 0 30px rgba(245, 179, 66, 0.4);
+    }
+    
+    .purpose-card h3 {
+      font-size: 1.8rem;
+      color: #f5b342;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    
+    .purpose-card p {
+      color: #a0a8b0;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    
+    /* Блок с кнопкой */
+    .cta-block {
+      background: linear-gradient(145deg, #14181c, #0f1215);
+      border-radius: 32px;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin: 4rem 0;
+      border: 2px solid rgba(245, 179, 66, 0.3);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(245, 179, 66, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+    
+    .cta-block h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-block p {
+      color: #a0a8b0;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      position: relative;
+      z-index: 1;
+      line-height: 1.8;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #f5b342, #ffd700);
+      color: #0a0c0f;
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      padding: 1.2rem 3.5rem;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 1;
+      border: 2px solid transparent;
+      box-shadow: 0 10px 25px rgba(245, 179, 66, 0.3);
+      animation: buttonPulse 2s infinite;
+    }
+    
+    @keyframes buttonPulse {
+      0% { box-shadow: 0 10px 25px rgba(245, 179, 66, 0.3); transform: scale(1); }
+      50% { box-shadow: 0 20px 35px rgba(245, 179, 66, 0.6); transform: scale(1.02); }
+      100% { box-shadow: 0 10px 25px rgba(245, 179, 66, 0.3); transform: scale(1); }
+    }
+    
+    .cta-button:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 30px 40px rgba(245, 179, 66, 0.7);
+      border-color: #ffffff;
+    }
+    
+    .cta-button:active {
+      transform: scale(0.95);
+    }
+    
+    /* Блок с пояснением */
+    .info-block {
+      background: rgba(20, 24, 28, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 2px solid rgba(245, 179, 66, 0.2);
+      border-radius: 24px;
+      padding: 3rem;
+      margin: 4rem 0;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .info-block:hover {
+      border-color: rgba(245, 179, 66, 0.5);
+      box-shadow: 0 15px 30px rgba(245, 179, 66, 0.2);
+    }
+    
+    .info-block h3 {
+      font-size: 2rem;
+      color: #f5b342;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+    }
+    
+    .info-block p {
+      color: #ffffff;
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.9;
+    }
+    
+    .info-highlight {
+      color: #f5b342;
+      font-weight: 700;
+      background: rgba(245, 179, 66, 0.15);
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin: 1rem 0;
+      border: 1px solid rgba(245, 179, 66, 0.3);
+    }
+    
+    /* Блок "Почему стоит подать" */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .benefit-item {
+      background: linear-gradient(145deg, #14181c, #1a2128);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(245, 179, 66, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .benefit-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #f5b342, transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    
+    .benefit-item:hover::after {
+      transform: translateX(100%);
+    }
+    
+    .benefit-item:hover {
+      transform: translateY(-8px);
+      border-color: #f5b342;
+      box-shadow: 0 20px 30px rgba(245, 179, 66, 0.2);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    
+    .benefit-item:hover .benefit-icon {
+      transform: scale(1.2) rotate(5deg);
+    }
+    
+    .benefit-item h4 {
+      font-size: 1.4rem;
+      color: #f5b342;
+      margin-bottom: 0.8rem;
+      letter-spacing: 1px;
+    }
+    
+    .benefit-item p {
+      color: #a0a8b0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .apply-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .purpose-grid,
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .cta-block h2 {
+        font-size: 2rem;
+      }
+      
+      .cta-button {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+      }
+      
+      .info-block {
+        padding: 2rem;
+      }
+      
+      .info-block p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">OLYMPIC<span>SOUND</span></div>
+    <div class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="tracks.html">Чарт</a>
+      <a href="albums.html">Альбомы</a>
+      <a href="artists.html">Зал славы</a>
+      <a href="apply.html" class="active">Подать заявку</a>
+    </div>
+  </nav>
 
+  <main class="container">
+    <!-- 1. Hero-блок -->
+    <section class="apply-hero">
+      <div class="apply-subtitle">OLYMPIC SOUND</div>
+      <h1>СТАНЬ ЧАСТЬЮ<br>ГЛАВНОЙ СЦЕНЫ</h1>
+      <p>Подписание на лейбл • Дистрибуция • Сотрудничество • Медиа</p>
+    </section>
+
+    <!-- 2. Коротко о том, зачем это -->
+    <section>
+      <h2 style="text-align: center; margin-bottom: 2rem;">КТО МОЖЕТ ПОДАТЬ ЗАЯВКУ</h2>
+      <div class="purpose-grid">
+        <div class="purpose-card">
+          <div class="purpose-icon">🎤</div>
+          <h3>АРТИСТЫ</h3>
+          <p>Хочешь попасть на лейбл, получить дистрибуцию и место в чартах? Заполняй форму — мы ищем новые имена.</p>
+        </div>
+        <div class="purpose-card">
+          <div class="purpose-icon">🎧</div>
+          <h3>ПРОДЮСЕРЫ</h3>
+          <p>Есть биты, аранжировки или готовый продакшн? Предлагай сотрудничество — работаем с авторами любого уровня.</p>
+        </div>
+        <div class="purpose-card">
+          <div class="purpose-icon">🤝</div>
+          <h3>СОТРУДНИЧЕСТВО</h3>
+          <p>Промо, медиа, ивенты, бренды — если видишь точки пересечения, пиши. Открыты для любых предложений.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Кнопка отправки заявки с переходом по ссылке -->
+    <section class="cta-block">
+      <h2>ГОТОВ СДЕЛАТЬ ШАГ?</h2>
+      <p>Заполни анкету — это займёт не больше 10 минут. Мы рассмотрим каждую заявку лично.</p>
+      
+      <!-- ЗДЕСЬ ВСТАВИТЬ СВОЮ ССЫЛКУ НА ФОРМУ -->
+      <a href="#" class="cta-button" target="_blank" id="applyLink">ОТПРАВИТЬ ЗАЯВКУ</a>
+      <!-- Замените href="#" на реальную ссылку, например: https://forms.google.com/... -->
+    </section>
+
+    <!-- 4. Блок с пояснением -->
+    <section class="info-block">
+      <h3>КАК МЫ РАССМАТРИВАЕМ ЗАЯВКИ</h3>
+      <p>Мы изучаем каждую анкету вручную в течение 7–14 дней. Если твой профиль нас заинтересует — свяжемся через TAGGER или Telegram. <span class="info-highlight">Не пишите в личные сообщения</span> — это только замедлит процесс. Все официальные заявки только через эту форму.</p>
+    </section>
+
+    <!-- 5. Почему стоит подать заявку -->
+    <section>
+      <h2 style="text-align: center; margin-bottom: 2rem;">ПОЧЕМУ СТОИТ ПОДАТЬ ЗАЯВКУ</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">🎵</div>
+          <h4>Подписание на лейбл</h4>
+          <p>Стань частью крупнейшего музыкального сообщества штата. Работа с профессионалами, доступ к студии, продакшену.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">📀</div>
+          <h4>Дистрибуция релизов</h4>
+          <p>Твоя музыка попадёт во все чарты и на все площадки. Мы доставляем звук туда, где его ждут.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">📈</div>
+          <h4>Попадание в чарты</h4>
+          <p>Каждый подписанный артист автоматически участвует в формировании еженедельных чартов OLYMPIC.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🏆</div>
+          <h4>Зал славы</h4>
+          <p>Лучшие из лучших попадают в Зал славы OLYMPIC — навсегда, без рейтингов и рангов.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">📱</div>
+          <h4>Продвижение в СМИ</h4>
+          <p>Мы не просто лейбл, но и музыкальное СМИ. Твоё имя увидит вся сцена штата.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">⚡</div>
+          <h4>Преемственность Sanboard</h4>
+          <p>Обладая правами на наследие Sanboard, мы сохраняем историю и пишем новую главу вместе с тобой.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер не добавляем, как просили -->
+  
+  <script>
+    // Небольшая анимация для кнопки при загрузке
+    document.addEventListener('DOMContentLoaded', function() {
+      const button = document.getElementById('applyLink');
+      
+      // Здесь можно заменить ссылку прямо в коде, если нужно
+      // button.href = 'https://tvoj-sajt.com/form';
+      
+      // Эффект появления
+      setTimeout(() => {
+        button.style.animation = 'none';
+        button.offsetHeight;
+        button.style.animation = 'buttonPulse 2s infinite';
+      }, 100);
+    });
+  </script>
+</body>
+</html>
