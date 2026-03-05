@@ -5,6 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OLYMPIC SOUND - Главная</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Дополнительные стили для рекламных баннеров */
+    .ad-container {
+      position: relative;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      pointer-events: none;
+    }
+    
+    .ad-banner {
+      position: fixed;
+      top: 150px;
+      width: 160px;
+      z-index: 90;
+      pointer-events: auto;
+      transition: all 0.3s ease;
+    }
+    
+    .left-ad {
+      left: 20px;
+    }
+    
+    .right-ad {
+      right: 20px;
+    }
+    
+    .ad-link {
+      display: block;
+      text-decoration: none;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(245, 179, 66, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #14181c;
+    }
+    
+    .ad-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    
+    .ad-label {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #a0a8b0;
+      font-size: 0.6rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(245, 179, 66, 0.3);
+      backdrop-filter: blur(2px);
+      transition: all 0.3s ease;
+    }
+    
+    .ad-link:hover {
+      border-color: #f5b342;
+      box-shadow: 0 15px 30px rgba(245, 179, 66, 0.3);
+      transform: translateY(-5px);
+    }
+    
+    .ad-link:hover .ad-img {
+      transform: scale(1.05);
+    }
+    
+    .ad-link:hover .ad-label {
+      background: #f5b342;
+      color: #0a0c0f;
+    }
+    
+    .ad-banner.empty .ad-link {
+      border: 2px dashed rgba(245, 179, 66, 0.3);
+      background: linear-gradient(145deg, #14181c, #1a2128);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+    }
+    
+    .ad-banner.empty .ad-link::before {
+      content: "РЕКЛАМНОЕ МЕСТО";
+      color: #f5b342;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      opacity: 0.5;
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .ad-banner.empty .ad-img,
+    .ad-banner.empty .ad-label {
+      display: none;
+    }
+    
+    @media (max-width: 1300px) {
+      .ad-banner {
+        width: 140px;
+      }
+      
+      .left-ad {
+        left: 10px;
+      }
+      
+      .right-ad {
+        right: 10px;
+      }
+    }
+    
+    @media (max-width: 1100px) {
+      .ad-banner {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -14,9 +136,28 @@
       <a href="tracks.html">Чарт</a>
       <a href="albums.html">Альбомы</a>
       <a href="artists.html">Зал славы</a>
-      <a href="apply.html" class="active">Подать заявку</a>
+      <a href="apply.html">Подать заявку</a>
     </div>
   </nav>
+
+  <!-- РЕКЛАМНЫЕ БАННЕРЫ -->
+  <div class="ad-container">
+    <!-- Левый рекламный баннер -->
+    <div class="ad-banner left-ad">
+      <a href="#" target="_blank" rel="nofollow sponsored" class="ad-link">
+        <img src="ads/ad-placeholder-left.jpg" alt="Рекламное место" class="ad-img">
+        <span class="ad-label">РЕКЛАМА</span>
+      </a>
+    </div>
+
+    <!-- Правый рекламный баннер -->
+    <div class="ad-banner right-ad">
+      <a href="#" target="_blank" rel="nofollow sponsored" class="ad-link">
+        <img src="ads/ad-placeholder-right.jpg" alt="Рекламное место" class="ad-img">
+        <span class="ad-label">РЕКЛАМА</span>
+      </a>
+    </div>
+  </div>
 
   <main class="container">
     <section class="hero">
@@ -83,8 +224,5 @@
       </div>
     </section>
   </main>
+</body>
 </html>
-
-
-
-
