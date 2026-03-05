@@ -6,7 +6,7 @@
   <title>OLYMPIC SOUND - Подать заявку</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Дополнительные стили для страницы подачи заявок */
+    /* Дополнительные стили для страницы подачи заявок и рекламных баннеров */
     .apply-hero {
       text-align: center;
       padding: 5rem 1rem;
@@ -73,7 +73,6 @@
       z-index: 1;
     }
     
-    /* Карточки "Зачем это" */
     .purpose-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -146,7 +145,6 @@
       line-height: 1.8;
     }
     
-    /* Блок с кнопкой */
     .cta-block {
       background: linear-gradient(145deg, #14181c, #0f1215);
       border-radius: 32px;
@@ -222,7 +220,6 @@
       transform: scale(0.95);
     }
     
-    /* Блок с пояснением */
     .info-block {
       background: rgba(20, 24, 28, 0.7);
       backdrop-filter: blur(10px);
@@ -266,7 +263,6 @@
       border: 1px solid rgba(245, 179, 66, 0.3);
     }
     
-    /* Блок "Почему стоит подать" */
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -330,31 +326,180 @@
       line-height: 1.7;
     }
     
-    /* Адаптивность */
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 20px;
+      gap: 30px;
+      position: relative;
+      width: 100%;
+    }
+    
+    .ad-banner {
+      position: sticky;
+      top: 120px;
+      width: 200px;
+      height: fit-content;
+      align-self: flex-start;
+      z-index: 50;
+      transition: all 0.3s ease;
+    }
+    
+    .left-ad {
+      order: 1;
+    }
+    
+    .right-ad {
+      order: 3;
+    }
+    
+    main {
+      order: 2;
+      flex: 1;
+      max-width: 1100px;
+      min-width: 0;
+    }
+    
+    .ad-link {
+      display: block;
+      text-decoration: none;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(245, 179, 66, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #14181c;
+    }
+    
+    .ad-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    
+    .ad-label {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #a0a8b0;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(245, 179, 66, 0.3);
+      backdrop-filter: blur(2px);
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+    
+    .ad-link:hover {
+      border-color: #f5b342;
+      box-shadow: 0 20px 35px rgba(245, 179, 66, 0.4);
+      transform: scale(1.02);
+    }
+    
+    .ad-link:hover .ad-img {
+      transform: scale(1.08);
+    }
+    
+    .ad-link:hover .ad-label {
+      background: #f5b342;
+      color: #0a0c0f;
+    }
+    
+    .ad-banner.empty .ad-link {
+      border: 2px dashed rgba(245, 179, 66, 0.3);
+      background: linear-gradient(145deg, #14181c, #1a2128);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 250px;
+      cursor: default;
+    }
+    
+    .ad-banner.empty .ad-link::before {
+      content: "РЕКЛАМНОЕ МЕСТО";
+      color: #f5b342;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      opacity: 0.5;
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .ad-banner.empty .ad-img,
+    .ad-banner.empty .ad-label {
+      display: none;
+    }
+    
+    @media (max-width: 1400px) {
+      .content-wrapper {
+        gap: 20px;
+      }
+      .ad-banner {
+        width: 180px;
+      }
+    }
+    
+    @media (max-width: 1200px) {
+      .ad-banner {
+        width: 160px;
+      }
+    }
+    
+    @media (max-width: 1100px) {
+      .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+      .ad-banner {
+        position: static;
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+      }
+      .left-ad {
+        order: 2;
+      }
+      .right-ad {
+        order: 3;
+      }
+      main {
+        order: 1;
+      }
+    }
+    
     @media (max-width: 768px) {
       .apply-hero h1 {
         font-size: 2.5rem;
       }
-      
       .purpose-grid,
       .benefits-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
-      
       .cta-block h2 {
         font-size: 2rem;
       }
-      
       .cta-button {
         font-size: 1.2rem;
         padding: 1rem 2rem;
       }
-      
       .info-block {
         padding: 2rem;
       }
-      
       .info-block p {
         font-size: 1rem;
       }
@@ -373,101 +518,105 @@
     </div>
   </nav>
 
-  <main class="container">
-    <!-- 1. Hero-блок -->
-    <section class="apply-hero">
-      <div class="apply-subtitle">OLYMPIC SOUND</div>
-      <h1>СТАНЬ ЧАСТЬЮ<br>ГЛАВНОЙ СЦЕНЫ</h1>
-      <p>Лейбл • Дистрибьюция • Сотрудничество • Медиа</p>
-    </section>
+  <div class="content-wrapper">
+    <!-- Левый рекламный баннер -->
+    <div class="ad-banner left-ad">
+      <a href="#" target="_blank" rel="nofollow sponsored" class="ad-link">
+        <img src="ads/test.png" alt="Рекламное место" class="ad-img">
+        <span class="ad-label">РЕКЛАМА</span>
+      </a>
+    </div>
 
-    <!-- 2. Коротко о том, зачем это -->
-    <section>
-      <h2 style="text-align: center; margin-bottom: 2rem;">КТО МОЖЕТ ПОДАТЬ ЗАЯВКУ</h2>
-      <div class="purpose-grid">
-        <div class="purpose-card">
-          <div class="purpose-icon">🎤</div>
-          <h3>АРТИСТЫ</h3>
-          <p>Хочешь попасть на лейбл, получить дистрибуцию и место в чартах? Заполняй форму — мы ищем новые имена.</p>
-        </div>
-        <div class="purpose-card">
-          <div class="purpose-icon">🎧</div>
-          <h3>ПРОДЮСЕРЫ</h3>
-          <p>Есть биты, аранжировки или готовый продакшн? Предлагай сотрудничество — работаем с авторами любого уровня.</p>
-        </div>
-        <div class="purpose-card">
-          <div class="purpose-icon">🤝</div>
-          <h3>АВТОРЫ</h3>
-          <p>Промо, медиа, ивенты, бренды — если видишь точки пересечения, пиши. Открыты для любых предложений.</p>
-        </div>
-      </div>
-    </section>
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="container" style="margin: 0; padding: 2rem 0;">
+      <section class="apply-hero">
+        <div class="apply-subtitle">OLYMPIC SOUND</div>
+        <h1>СТАНЬ ЧАСТЬЮ<br>ГЛАВНОЙ СЦЕНЫ</h1>
+        <p>Лейбл • Дистрибьюция • Сотрудничество • Медиа</p>
+      </section>
 
-    <!-- 3. Кнопка отправки заявки с переходом по ссылке -->
-    <section class="cta-block">
-      <h2>ГОТОВ СДЕЛАТЬ ШАГ?</h2>
-      <p>Заполни анкету — это займёт не больше 10 минут. Мы рассмотрим каждую заявку лично.</p>
-      
-      <!-- ЗДЕСЬ ВСТАВИТЬ СВОЮ ССЫЛКУ НА ФОРМУ -->
-      <a href="https://forms.gle/AzeB7gnYA8zd73Tw6" class="cta-button" target="_blank" id="applyLink">ОТПРАВИТЬ ЗАЯВКУ</a>
-      <!-- Замените href="#" на реальную ссылку, например: https://forms.google.com/... -->
-    </section>
+      <section>
+        <h2 style="text-align: center; margin-bottom: 2rem;">КТО МОЖЕТ ПОДАТЬ ЗАЯВКУ</h2>
+        <div class="purpose-grid">
+          <div class="purpose-card">
+            <div class="purpose-icon">🎤</div>
+            <h3>АРТИСТЫ</h3>
+            <p>Хочешь попасть на лейбл, получить дистрибуцию и место в чартах? Заполняй форму — мы ищем новые имена.</p>
+          </div>
+          <div class="purpose-card">
+            <div class="purpose-icon">🎧</div>
+            <h3>ПРОДЮСЕРЫ</h3>
+            <p>Есть биты, аранжировки или готовый продакшн? Предлагай сотрудничество — работаем с авторами любого уровня.</p>
+          </div>
+          <div class="purpose-card">
+            <div class="purpose-icon">🤝</div>
+            <h3>АВТОРЫ</h3>
+            <p>Промо, медиа, ивенты, бренды — если видишь точки пересечения, пиши. Открыты для любых предложений.</p>
+          </div>
+        </div>
+      </section>
 
-    <!-- 4. Блок с пояснением -->
-    <section class="info-block">
-      <h3>КАК МЫ РАССМАТРИВАЕМ ЗАЯВКИ</h3>
-      <p>Мы изучаем каждую анкету вручную в течение 7–14 дней. Если твой профиль нас заинтересует — свяжемся через TAGGER. Не пишите в личные сообщения сами — это только замедлит процесс. Все официальные заявки только через эту форму.</p>
-    </section>
+      <section class="cta-block">
+        <h2>ГОТОВ СДЕЛАТЬ ШАГ?</h2>
+        <p>Заполни анкету — это займёт не больше 10 минут. Мы рассмотрим каждую заявку лично.</p>
+        
+        <a href="https://forms.gle/AzeB7gnYA8zd73Tw6" class="cta-button" target="_blank" id="applyLink">ОТПРАВИТЬ ЗАЯВКУ</a>
+      </section>
 
-    <!-- 5. Почему стоит подать заявку -->
-    <section>
-      <h2 style="text-align: center; margin-bottom: 2rem;">ПОЧЕМУ СТОИТ ПОДАТЬ ЗАЯВКУ</h2>
-      <div class="benefits-grid">
-        <div class="benefit-item">
-          <div class="benefit-icon">🎵</div>
-          <h4>Подписание на лейбл</h4>
-          <p>Стань частью крупнейшего музыкального сообщества штата. Работа с профессионалами, доступ к студии, продакшену.</p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">📀</div>
-          <h4>Дистрибьюция релизов</h4>
-          <p>Твоя музыка попадёт во все чарты и на все площадки. Мы доставляем звук туда, где его ждут.</p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">📈</div>
-          <h4>Менеджмент</h4>
-          <p>Каждый подписанный артист автоматически обретает команду профессионлов занимающихся его продвижением.</p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">🏆</div>
-          <h4>Зал славы</h4>
-          <p>Лучшие из лучших попадают в Зал славы OLYMPIC — навсегда, без рейтингов и рангов.</p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">📱</div>
-          <h4>Продвижение в СМИ</h4>
-          <p>Мы не просто лейбл, но и музыкальное СМИ. Твоё имя увидит вся сцена штата.</p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">⚡</div>
-          <h4>Ты — часть лучших</h4>
-          <p>Подписание на наш лейбл ставит тебя рядом с именами лучших на сцене. Не упусти этот шанс!</p>
-        </div>
-      </div>
-    </section>
-  </main>
+      <section class="info-block">
+        <h3>КАК МЫ РАССМАТРИВАЕМ ЗАЯВКИ</h3>
+        <p>Мы изучаем каждую анкету вручную в течение 7–14 дней. Если твой профиль нас заинтересует — свяжемся через TAGGER. Не пишите в личные сообщения сами — это только замедлит процесс. Все официальные заявки только через эту форму.</p>
+      </section>
 
-  <!-- Футер не добавляем, как просили -->
-  
+      <section>
+        <h2 style="text-align: center; margin-bottom: 2rem;">ПОЧЕМУ СТОИТ ПОДАТЬ ЗАЯВКУ</h2>
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <div class="benefit-icon">🎵</div>
+            <h4>Подписание на лейбл</h4>
+            <p>Стань частью крупнейшего музыкального сообщества штата. Работа с профессионалами, доступ к студии, продакшену.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">📀</div>
+            <h4>Дистрибьюция релизов</h4>
+            <p>Твоя музыка попадёт во все чарты и на все площадки. Мы доставляем звук туда, где его ждут.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">📈</div>
+            <h4>Менеджмент</h4>
+            <p>Каждый подписанный артист автоматически обретает команду профессионлов занимающихся его продвижением.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🏆</div>
+            <h4>Зал славы</h4>
+            <p>Лучшие из лучших попадают в Зал славы OLYMPIC — навсегда, без рейтингов и рангов.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">📱</div>
+            <h4>Продвижение в СМИ</h4>
+            <p>Мы не просто лейбл, но и музыкальное СМИ. Твоё имя увидит вся сцена штата.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">⚡</div>
+            <h4>Ты — часть лучших</h4>
+            <p>Подписание на наш лейбл ставит тебя рядом с именами лучших на сцене. Не упусти этот шанс!</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Правый рекламный баннер -->
+    <div class="ad-banner right-ad">
+      <a href="#" target="_blank" rel="nofollow sponsored" class="ad-link">
+        <img src="ads/test.png" alt="Рекламное место" class="ad-img">
+        <span class="ad-label">РЕКЛАМА</span>
+      </a>
+    </div>
+  </div>
+
   <script>
-    // Небольшая анимация для кнопки при загрузке
     document.addEventListener('DOMContentLoaded', function() {
       const button = document.getElementById('applyLink');
-      
-      // Здесь можно заменить ссылку прямо в коде, если нужно
-      // button.href = 'https://tvoj-sajt.com/form';
-      
-      // Эффект появления
       setTimeout(() => {
         button.style.animation = 'none';
         button.offsetHeight;
