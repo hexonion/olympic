@@ -7,30 +7,45 @@
   <link rel="stylesheet" href="style.css">
   <style>
     /* Дополнительные стили для рекламных баннеров */
-    .ad-container {
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 20px;
+      gap: 30px;
       position: relative;
       width: 100%;
-      max-width: 1400px;
-      margin: 0 auto;
-      pointer-events: none;
     }
     
     .ad-banner {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
+      position: sticky;
+      top: 120px; /* Отступ от хедера */
       width: 200px;
-      z-index: 90;
-      pointer-events: auto;
+      height: fit-content;
+      align-self: flex-start;
+      z-index: 50;
       transition: all 0.3s ease;
     }
     
     .left-ad {
-      left: 30px;
+      order: 1;
     }
     
     .right-ad {
-      right: 30px;
+      order: 3;
+    }
+    
+    main {
+      order: 2;
+      flex: 1;
+      max-width: 1100px;
+      min-width: 0; /* Для предотвращения переполнения */
     }
     
     .ad-link {
@@ -113,16 +128,12 @@
     
     /* Адаптивность */
     @media (max-width: 1400px) {
+      .content-wrapper {
+        gap: 20px;
+      }
+      
       .ad-banner {
         width: 180px;
-      }
-      
-      .left-ad {
-        left: 15px;
-      }
-      
-      .right-ad {
-        right: 15px;
       }
     }
     
@@ -133,8 +144,28 @@
     }
     
     @media (max-width: 1100px) {
+      .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+      
       .ad-banner {
-        display: none; /* Скрываем на узких экранах */
+        position: static;
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+      }
+      
+      .left-ad {
+        order: 2;
+      }
+      
+      .right-ad {
+        order: 3;
+      }
+      
+      main {
+        order: 1;
       }
     }
   </style>
@@ -151,8 +182,8 @@
     </div>
   </nav>
 
-  <!-- РЕКЛАМНЫЕ БАННЕРЫ - фиксированные по центру вертикали, двигаются со скроллом -->
-  <div class="ad-container">
+  <!-- НОВЫЙ КОНТЕЙНЕР С FLEX для баннеров и контента -->
+  <div class="content-wrapper">
     <!-- Левый рекламный баннер -->
     <div class="ad-banner left-ad">
       <a href="#" target="_blank" rel="nofollow sponsored" class="ad-link">
@@ -160,6 +191,73 @@
         <span class="ad-label">РЕКЛАМА</span>
       </a>
     </div>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="container" style="margin: 0; padding: 2rem 0;">
+      <section class="hero">
+        <h1>OLYMPIC SOUND</h1>
+        <p>ГЛАВНАЯ СЦЕНА ШТАТА</p>
+      </section>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <h3>Артистов на лейбле</h3>
+          <p>1</p>
+        </div>
+        <div class="stat-card">
+          <h3>Новых релизов</h3>
+          <p>3</p>
+        </div>
+        <div class="stat-card">
+          <h3>В зале славы</h3>
+          <p>5</p>
+        </div>
+        <div class="stat-card">
+          <h3>Наград вручено</h3>
+          <p>5</p>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <h2>О НАС</h2>
+        <p>OLYMPIC SOUND — это больше чем лейбл. Это главное музыкальное сообщество Сан-Андреаса, не имеющее аналогов по масштабу и влиянию. Мы объединяем артистов, продюсеров и авторов, задавая стандарты качества для всей сцены штата. Мы — единственный в своём роде проект, который одновременно является рекорд-лейблом, дистрибьютором, музыкальным СМИ и авторитетным чартом. Обладая полными правами на наследие Sanboard, мы формируем актуальную музыкальную повестку, опираясь на историю и глядя в будущее. Мы работаем с артистами на всех уровнях — от студии до чартов. Мы доставляем музыку туда, где её ждут. Здесь продажи обретают форму, треки попадают в чарты, а имена остаются в истории. Навсегда.</p>
+        <p style="margin-top: 1rem; color: #a0a8b0;">Новый музыкальный авторитет Сан-Андреаса.</p>
+      </section>
+
+      <section class="features">
+        <div class="feature">🎵 ВЫПУСКАЕМ МУЗЫКУ</div>
+        <div class="feature">📊 СОСТАВЛЯЕМ ЧАРТЫ</div>
+        <div class="feature">🏆 ОТКРЫВАЕМ ТАЛАНТЫ</div>
+      </section>
+
+      <section class="mini-top">
+        <h2>ТОП НЕДЕЛИ — ВЫБОР РЕДАКЦИИ</h2>
+        
+        <div class="mini-item">
+          <div class="mini-rank">1</div>
+          <div class="mini-info">
+            <div class="mini-label">ТРЕК НЕДЕЛИ</div>
+            <div>lunaa. — California Rain</div>
+          </div>
+        </div>
+        
+        <div class="mini-item">
+          <div class="mini-rank">1</div>
+          <div class="mini-info">
+            <div class="mini-label">АЛЬБОМ НЕДЕЛИ</div>
+            <div>silvain — SEX NARCISSIST</div>
+          </div>
+        </div>
+        
+        <div class="mini-item">
+          <div class="mini-rank">1</div>
+          <div class="mini-info">
+            <div class="mini-label">АРТИСТ НЕДЕЛИ</div>
+            <div>2SMILEY</div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- Правый рекламный баннер -->
     <div class="ad-banner right-ad">
@@ -169,73 +267,5 @@
       </a>
     </div>
   </div>
-
-  <main class="container">
-    <section class="hero">
-      <h1>OLYMPIC SOUND</h1>
-      <p>ГЛАВНАЯ СЦЕНА ШТАТА</p>
-    </section>
-
-    <section class="stats-grid">
-      <div class="stat-card">
-        <h3>Артистов на лейбле</h3>
-        <p>1</p>
-      </div>
-      <div class="stat-card">
-        <h3>Новых релизов</h3>
-        <p>3</p>
-      </div>
-      <div class="stat-card">
-        <h3>В зале славы</h3>
-        <p>5</p>
-      </div>
-      <div class="stat-card">
-        <h3>Наград вручено</h3>
-        <p>5</p>
-      </div>
-    </section>
-
-    <section class="about-section">
-      <h2>О НАС</h2>
-      <p>OLYMPIC SOUND — это больше чем лейбл. Это главное музыкальное сообщество Сан-Андреаса, не имеющее аналогов по масштабу и влиянию. Мы объединяем артистов, продюсеров и авторов, задавая стандарты качества для всей сцены штата. Мы — единственный в своём роде проект, который одновременно является рекорд-лейблом, дистрибьютором, музыкальным СМИ и авторитетным чартом. Обладая полными правами на наследие Sanboard, мы формируем актуальную музыкальную повестку, опираясь на историю и глядя в будущее. Мы работаем с артистами на всех уровнях — от студии до чартов. Мы доставляем музыку туда, где её ждут. Здесь продажи обретают форму, треки попадают в чарты, а имена остаются в истории. Навсегда.</p>
-      <p style="margin-top: 1rem; color: #a0a8b0;">Новый музыкальный авторитет Сан-Андреаса.</p>
-    </section>
-
-    <section class="features">
-      <div class="feature">🎵 ВЫПУСКАЕМ МУЗЫКУ</div>
-      <div class="feature">📊 СОСТАВЛЯЕМ ЧАРТЫ</div>
-      <div class="feature">🏆 ОТКРЫВАЕМ ТАЛАНТЫ</div>
-    </section>
-
-    <section class="mini-top">
-      <h2>ТОП НЕДЕЛИ — ВЫБОР РЕДАКЦИИ</h2>
-      
-      <div class="mini-item">
-        <div class="mini-rank">1</div>
-        <div class="mini-info">
-          <div class="mini-label">ТРЕК НЕДЕЛИ</div>
-          <div>lunaa. — California Rain</div>
-        </div>
-      </div>
-      
-      <div class="mini-item">
-        <div class="mini-rank">1</div>
-        <div class="mini-info">
-          <div class="mini-label">АЛЬБОМ НЕДЕЛИ</div>
-          <div>silvain — SEX NARCISSIST</div>
-        </div>
-      </div>
-      
-      <div class="mini-item">
-        <div class="mini-rank">1</div>
-        <div class="mini-info">
-          <div class="mini-label">АРТИСТ НЕДЕЛИ</div>
-          <div>2SMILEY</div>
-        </div>
-      </div>
-    </section>
-  </main>
 </body>
 </html>
-
-
