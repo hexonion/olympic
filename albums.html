@@ -6,7 +6,7 @@
   <title>OLYMPIC SOUND - Топ альбомов</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Дополнительный стиль для корректного отображения обложек */
+    /* Дополнительные стили для обложек и рекламных баннеров */
     .album-cover {
       width: 70px;
       height: 70px;
@@ -28,6 +28,161 @@
     .album-item:hover .album-cover {
       transform: scale(1.05) rotate(2deg);
     }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 20px;
+      gap: 30px;
+      position: relative;
+      width: 100%;
+    }
+    
+    .ad-banner {
+      position: sticky;
+      top: 120px;
+      width: 200px;
+      height: fit-content;
+      align-self: flex-start;
+      z-index: 50;
+      transition: all 0.3s ease;
+    }
+    
+    .left-ad {
+      order: 1;
+    }
+    
+    .right-ad {
+      order: 3;
+    }
+    
+    main {
+      order: 2;
+      flex: 1;
+      max-width: 1100px;
+      min-width: 0;
+    }
+    
+    .ad-link {
+      display: block;
+      text-decoration: none;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(245, 179, 66, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #14181c;
+    }
+    
+    .ad-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    
+    .ad-label {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #a0a8b0;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(245, 179, 66, 0.3);
+      backdrop-filter: blur(2px);
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+    
+    .ad-link:hover {
+      border-color: #f5b342;
+      box-shadow: 0 20px 35px rgba(245, 179, 66, 0.4);
+      transform: scale(1.02);
+    }
+    
+    .ad-link:hover .ad-img {
+      transform: scale(1.08);
+    }
+    
+    .ad-link:hover .ad-label {
+      background: #f5b342;
+      color: #0a0c0f;
+    }
+    
+    .ad-banner.empty .ad-link {
+      border: 2px dashed rgba(245, 179, 66, 0.3);
+      background: linear-gradient(145deg, #14181c, #1a2128);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 250px;
+      cursor: default;
+    }
+    
+    .ad-banner.empty .ad-link::before {
+      content: "РЕКЛАМНОЕ МЕСТО";
+      color: #f5b342;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      opacity: 0.5;
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .ad-banner.empty .ad-img,
+    .ad-banner.empty .ad-label {
+      display: none;
+    }
+    
+    @media (max-width: 1400px) {
+      .content-wrapper {
+        gap: 20px;
+      }
+      .ad-banner {
+        width: 180px;
+      }
+    }
+    
+    @media (max-width: 1200px) {
+      .ad-banner {
+        width: 160px;
+      }
+    }
+    
+    @media (max-width: 1100px) {
+      .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+      .ad-banner {
+        position: static;
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+      }
+      .left-ad {
+        order: 2;
+      }
+      .right-ad {
+        order: 3;
+      }
+      main {
+        order: 1;
+      }
+    }
   </style>
 </head>
 <body>
@@ -38,94 +193,113 @@
       <a href="tracks.html">Чарт</a>
       <a href="albums.html" class="active">Альбомы</a>
       <a href="artists.html">Зал славы</a>
-      <a href="apply.html" class="active">Подать заявку</a>
+      <a href="apply.html">Подать заявку</a>
     </div>
   </nav>
 
-  <main class="container">
-    <div class="page-header">
-      <h1>ТОП 6 АЛЬБОМОВ</h1>
+  <div class="content-wrapper">
+    <!-- Левый рекламный баннер -->
+    <div class="ad-banner left-ad">
+      <a href="#" target="_blank" rel="nofollow sponsored" class="ad-link">
+        <img src="ads/test.png" alt="Рекламное место" class="ad-img">
+        <span class="ad-label">РЕКЛАМА</span>
+      </a>
     </div>
 
-    <div class="album-grid">
-      <!-- Альбом 1 -->
-      <div class="album-item">
-        <div class="album-rank">1</div>
-        <div class="album-cover">
-          <img src="covers/thecapuletcode.png" alt="error" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
-        </div>
-        <div class="album-info">
-          <div class="album-title">The Capulet Code</div>
-          <div class="album-artist">praisecapulet</div>
-          <div class="album-date">релиз: 2026-01-18</div>
-        </div>
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="container" style="margin: 0; padding: 2rem 0;">
+      <div class="page-header">
+        <h1>ТОП 6 АЛЬБОМОВ</h1>
       </div>
 
-      <!-- Альбом 2 -->
-      <div class="album-item">
-        <div class="album-rank">2</div>
-        <div class="album-cover">
-          <img src="covers/error.png" alt="The Capulet Code" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+      <div class="album-grid">
+        <!-- Альбом 1 -->
+        <div class="album-item">
+          <div class="album-rank">1</div>
+          <div class="album-cover">
+            <img src="covers/thecapuletcode.png" alt="The Capulet Code" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+          </div>
+          <div class="album-info">
+            <div class="album-title">The Capulet Code</div>
+            <div class="album-artist">praisecapulet</div>
+            <div class="album-date">релиз: 2026-01-18</div>
+          </div>
         </div>
-        <div class="album-info">
-          <div class="album-title">error</div>
-          <div class="album-artist">lunaa.</div>
-          <div class="album-date">релиз: 2025-12-30</div>
-        </div>
-      </div>
 
-      <!-- Альбом 3 -->
-      <div class="album-item">
-        <div class="album-rank">3</div>
-        <div class="album-cover">
-          <img src="covers/thegoat2.png" alt="SEX NARCISSIST" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        <!-- Альбом 2 -->
+        <div class="album-item">
+          <div class="album-rank">2</div>
+          <div class="album-cover">
+            <img src="covers/error.png" alt="error" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+          </div>
+          <div class="album-info">
+            <div class="album-title">error</div>
+            <div class="album-artist">lunaa.</div>
+            <div class="album-date">релиз: 2025-12-30</div>
+          </div>
         </div>
-        <div class="album-info">
-          <div class="album-title">THE GOAT 2</div>
-          <div class="album-artist">YUNG ROLLIN</div>
-          <div class="album-date">релиз: 2026-01-22</div>
-        </div>
-      </div>
 
-      <!-- Альбом 4 -->
-      <div class="album-item">
-        <div class="album-rank">4</div>
-        <div class="album-cover">
-          <img src="covers/sexnar.jpg" alt="THE GOAT 2" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        <!-- Альбом 3 -->
+        <div class="album-item">
+          <div class="album-rank">3</div>
+          <div class="album-cover">
+            <img src="covers/thegoat2.png" alt="THE GOAT 2" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+          </div>
+          <div class="album-info">
+            <div class="album-title">THE GOAT 2</div>
+            <div class="album-artist">YUNG ROLLIN</div>
+            <div class="album-date">релиз: 2026-01-22</div>
+          </div>
         </div>
-        <div class="album-info">
-          <div class="album-title">SEX NARCISSIST</div>
-          <div class="album-artist">silvain</div>
-          <div class="album-date">релиз: 2026-03-01</div>
-        </div>
-      </div>
 
-      <!-- Альбом 5 -->
-      <div class="album-item">
-        <div class="album-rank">5</div>
-        <div class="album-cover">
-          <img src="covers/sle.jpg" alt="some life exchanged" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        <!-- Альбом 4 -->
+        <div class="album-item">
+          <div class="album-rank">4</div>
+          <div class="album-cover">
+            <img src="covers/sexnar.jpg" alt="SEX NARCISSIST" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+          </div>
+          <div class="album-info">
+            <div class="album-title">SEX NARCISSIST</div>
+            <div class="album-artist">silvain</div>
+            <div class="album-date">релиз: 2026-03-01</div>
+          </div>
         </div>
-        <div class="album-info">
-          <div class="album-title">some life exchanged</div>
-          <div class="album-artist">2SMILEY</div>
-          <div class="album-date">релиз: 2026-02-27</div>
-        </div>
-      </div>
 
-      <!-- Альбом 6 -->
-      <div class="album-item">
-        <div class="album-rank">6</div>
-        <div class="album-cover">
-          <img src="covers/depth.jpg" alt="depth" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+        <!-- Альбом 5 -->
+        <div class="album-item">
+          <div class="album-rank">5</div>
+          <div class="album-cover">
+            <img src="covers/sle.jpg" alt="some life exchanged" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+          </div>
+          <div class="album-info">
+            <div class="album-title">some life exchanged</div>
+            <div class="album-artist">2SMILEY</div>
+            <div class="album-date">релиз: 2026-02-27</div>
+          </div>
         </div>
-        <div class="album-info">
-          <div class="album-title">depth</div>
-          <div class="album-artist">Shawn Wayne</div>
-          <div class="album-date">релиз: 2025-04-25</div>
+
+        <!-- Альбом 6 -->
+        <div class="album-item">
+          <div class="album-rank">6</div>
+          <div class="album-cover">
+            <img src="covers/depth.jpg" alt="depth" onerror="this.parentElement.innerHTML='обложка';this.parentElement.style.background='#2a323a';">
+          </div>
+          <div class="album-info">
+            <div class="album-title">depth</div>
+            <div class="album-artist">Shawn Wayne</div>
+            <div class="album-date">релиз: 2025-04-25</div>
+          </div>
         </div>
       </div>
+    </main>
+
+    <!-- Правый рекламный баннер -->
+    <div class="ad-banner right-ad">
+      <a href="#" target="_blank" rel="nofollow sponsored" class="ad-link">
+        <img src="ads/test.png" alt="Рекламное место" class="ad-img">
+        <span class="ad-label">РЕКЛАМА</span>
+      </a>
     </div>
-  </main>
+  </div>
+</body>
 </html>
-
