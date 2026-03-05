@@ -17,28 +17,29 @@
     
     .ad-banner {
       position: fixed;
-      top: 150px;
-      width: 160px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
       z-index: 90;
       pointer-events: auto;
       transition: all 0.3s ease;
     }
     
     .left-ad {
-      left: 20px;
+      left: 30px;
     }
     
     .right-ad {
-      right: 20px;
+      right: 30px;
     }
     
     .ad-link {
       display: block;
       text-decoration: none;
       position: relative;
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
       border: 2px solid rgba(245, 179, 66, 0.2);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       background: #14181c;
@@ -53,28 +54,29 @@
     
     .ad-label {
       position: absolute;
-      top: 8px;
-      right: 8px;
-      background: rgba(0, 0, 0, 0.6);
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
       color: #a0a8b0;
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       font-weight: 600;
-      padding: 0.2rem 0.5rem;
+      padding: 0.25rem 0.6rem;
       border-radius: 4px;
       letter-spacing: 0.5px;
       border: 1px solid rgba(245, 179, 66, 0.3);
       backdrop-filter: blur(2px);
       transition: all 0.3s ease;
+      z-index: 2;
     }
     
     .ad-link:hover {
       border-color: #f5b342;
-      box-shadow: 0 15px 30px rgba(245, 179, 66, 0.3);
-      transform: translateY(-5px);
+      box-shadow: 0 20px 35px rgba(245, 179, 66, 0.4);
+      transform: scale(1.02);
     }
     
     .ad-link:hover .ad-img {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
     
     .ad-link:hover .ad-label {
@@ -82,13 +84,15 @@
       color: #0a0c0f;
     }
     
+    /* Заглушка для свободного места */
     .ad-banner.empty .ad-link {
       border: 2px dashed rgba(245, 179, 66, 0.3);
       background: linear-gradient(145deg, #14181c, #1a2128);
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 200px;
+      min-height: 250px;
+      cursor: default;
     }
     
     .ad-banner.empty .ad-link::before {
@@ -107,23 +111,30 @@
       display: none;
     }
     
-    @media (max-width: 1300px) {
+    /* Адаптивность */
+    @media (max-width: 1400px) {
       .ad-banner {
-        width: 140px;
+        width: 180px;
       }
       
       .left-ad {
-        left: 10px;
+        left: 15px;
       }
       
       .right-ad {
-        right: 10px;
+        right: 15px;
+      }
+    }
+    
+    @media (max-width: 1200px) {
+      .ad-banner {
+        width: 160px;
       }
     }
     
     @media (max-width: 1100px) {
       .ad-banner {
-        display: none;
+        display: none; /* Скрываем на узких экранах */
       }
     }
   </style>
@@ -140,7 +151,7 @@
     </div>
   </nav>
 
-  <!-- РЕКЛАМНЫЕ БАННЕРЫ -->
+  <!-- РЕКЛАМНЫЕ БАННЕРЫ - фиксированные по центру вертикали -->
   <div class="ad-container">
     <!-- Левый рекламный баннер -->
     <div class="ad-banner left-ad">
@@ -152,8 +163,8 @@
 
     <!-- Правый рекламный баннер -->
     <div class="ad-banner right-ad">
-      <a href="tagger.su/" target="_blank" rel="nofollow sponsored" class="ad-link">
-        <img src="ads/test.png" alt="Рекламное место" class="ad-img">
+      <a href="#" target="_blank" rel="nofollow sponsored" class="ad-link">
+        <img src="ads/ad-placeholder-right.jpg" alt="Рекламное место" class="ad-img">
         <span class="ad-label">РЕКЛАМА</span>
       </a>
     </div>
@@ -226,4 +237,3 @@
   </main>
 </body>
 </html>
-
